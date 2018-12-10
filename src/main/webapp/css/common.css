@@ -1,0 +1,111 @@
+html {
+    margin: 0;
+    padding: 0;
+    background-color: #e7e7e7;
+    font-family: Arial, serif;
+}
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 40px;
+    background-color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #003869;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+    color: #000;
+}
+
+h4 {
+    font-size: 22px;
+    color: #000;
+}
+
+h5 {
+    font-size: 20px;
+    color: #000;
+}
+
+h6 {
+    font-size: 18px;
+    color: #000;
+}
+
+input[type="text"] {
+    border: none;
+}
+
+input[type="text"]:focus,
+input[type="text"]:active {
+     outline: none;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+button:focus,
+button:active {
+     outline: none;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #6c7683;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: #003869;
+}
+
+.header {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #003869;
+}
+
+.line._title {
+    padding-top: 30px;
+}
+
+li {
+    line-height: 42Px;
+    list-style-type: none;
+}
+
+.lost-icon {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #003869;
+    vertical-align: middle;
+    transform: rotatez(45deg);
+    margin-right: 10px;
+}
