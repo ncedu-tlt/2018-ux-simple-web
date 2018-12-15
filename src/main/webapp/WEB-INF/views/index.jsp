@@ -22,6 +22,10 @@
                 <div class="list-icon"></div>
                 <a href="categories">Categories</a>
             </li>
+            <li>
+                <div class="list-icon"></div>
+                <a href="products">Products</a>
+            </li>
         </ul>
     </div>
 </body>
