@@ -33,15 +33,15 @@
         </tr>
         <%
             List<Product> products = (List<Product>) request.getAttribute("products");
-            for (Product product : products) {
-                long categoryId = product.getCategoryId();
-                Category category = CategoriesRepository.getInstance().get(categoryId);
+            List<Category> categories = (List<Category>) request.getAttribute("categories");
+
+            for (int i=0; i<products.size(); i++) {
         %>
         <tr>
-            <td><%= product.getId() %></td>
-            <td><%= product.getName() %></td>
-            <td><%= category.getName()%></td>
-            <td><%= product.getDescription() %></td>
+            <td><%= products.get(i).getId() %></td>
+            <td><%= products.get(i).getName() %></td>
+            <td><%= categories.get(i).getName()%></td>
+            <td><%= products.get(i).getDescription() %></td>
         </tr>
         <%
             }
