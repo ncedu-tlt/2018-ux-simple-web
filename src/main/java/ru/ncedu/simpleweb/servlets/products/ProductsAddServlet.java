@@ -21,7 +21,7 @@ public class ProductsAddServlet extends HttpServlet {
 
     private static final String NAME_PARAM = "name";
     private static final String DESCRIPTION_PARAM = "description";
-    private static final String CATEGORY_PARAM = "categoryList";
+    private static final String CATEGORY_PARAM = "category";
 
     private static final String ERROR_ATTR = "error";
 
@@ -37,15 +37,16 @@ public class ProductsAddServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter(NAME_PARAM);
         String description = req.getParameter(DESCRIPTION_PARAM);
-        long categoryId = Long.parseLong(req.getParameter(CATEGORY_PARAM));
+        String categoryIdStr = req.getParameter(CATEGORY_PARAM);
 
-        if (!isValid(name, description)) {
+        if (!isValid(name, description, categoryIdStr)) {
             req.setAttribute(ERROR_ATTR, true);
             req.setAttribute(CATEGORIES_ATTR, CategoriesRepository.getInstance().get());
             req.getRequestDispatcher(Views.PRODUCTS_ADD).forward(req, resp);
             return;
         }
 
+        long categoryId = Long.parseLong(categoryIdStr);
         Product product = new Product();
         product.setName(name);
         product.setCategoryId(categoryId);
@@ -56,9 +57,10 @@ public class ProductsAddServlet extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/products");
     }
 
-    private boolean isValid(String name, String description) {
+    private boolean isValid(String name, String description, String categoryIdStr) {
 
         return name != null && !name.isEmpty() &&
-                description != null && !description.isEmpty();
+                description != null && !description.isEmpty() &&
+                categoryIdStr != null && !categoryIdStr.isEmpty();
     }
 }
