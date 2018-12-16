@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="ru.ncedu.simpleweb.models.ProductViewModel" %>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
     <title>Products</title>
@@ -19,7 +19,9 @@
     <div class="line _title">
         <h2>Products</h2>
     </div>
-
+    <div class="line _bordered">
+        <a href="products/add">Add</a>
+    </div>
 
 <div class="line _table">
     <table>
