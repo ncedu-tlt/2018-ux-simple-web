@@ -21,7 +21,7 @@ public class ProductsAddServlet extends HttpServlet {
 
     private static final String NAME_PARAM = "name";
     private static final String DESCRIPTION_PARAM = "description";
-    private static final String CATEGORY_PARAM = "category";
+    private static final String CATEGORY_PARAM = "categoryList";
 
     private static final String ERROR_ATTR = "error";
 

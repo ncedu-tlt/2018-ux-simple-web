@@ -1,5 +1,3 @@
-<%@ page import="ru.ncedu.simpleweb.models.Category" %>
-<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <html>
@@ -29,20 +27,16 @@
 
         <div class="form__row">
             <div class="form__cell _label">
-                <label class="form__label" for="category">Category</label>
+                <label class="form__label" for="categoryList">Category</label>
             </div>
-            <%
-                List<Category> categories = (List<Category>) request.getAttribute("categories");
-            %>
-                <select id="category" name="category" size="1"  >
-            <%
-                for (Category category: categories) {
-            %>
-                <option value= "<%= category.getId()%>"> <%= category.getName() %> </option>
-            <%
-                }
-            %>
-                </select>
+
+
+            <select id="categoryList" name="categoryList" size="1"  >
+                <c:forEach items="${requestScope.categories}" var="category">
+                <option value= "${category.id}"> ${category.name}  </option>
+                </c:forEach>
+            </select>
+
         </div>
 
         <div class="form__row">
