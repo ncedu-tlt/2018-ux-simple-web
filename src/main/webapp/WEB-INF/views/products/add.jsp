@@ -27,16 +27,15 @@
 
         <div class="form__row">
             <div class="form__cell _label">
-                <label class="form__label" for="categoryList">Category</label>
+                <label class="form__label" for="category">Category</label>
             </div>
 
-
-            <select id="categoryList" name="categoryList" size="1"  >
+            <select id="category" name="category" size="1"  >
+                <option value="" style="display:none;"></option>
                 <c:forEach items="${requestScope.categories}" var="category">
                 <option value= "${category.id}"> ${category.name}  </option>
                 </c:forEach>
             </select>
-
         </div>
 
         <div class="form__row">
