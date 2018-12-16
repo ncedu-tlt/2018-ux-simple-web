@@ -1,7 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="ru.ncedu.simpleweb.models.Product" %>
-<%@ page import="ru.ncedu.simpleweb.models.Category" %>
-<%@ page import="ru.ncedu.simpleweb.repositories.CategoriesRepository" %>
+<%@ page import="ru.ncedu.simpleweb.models.ProductViewModel" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -32,16 +30,15 @@
             <th>Description</th>
         </tr>
         <%
-            List<Product> products = (List<Product>) request.getAttribute("products");
-            List<Category> categories = (List<Category>) request.getAttribute("categories");
+            List<ProductViewModel> products = (List<ProductViewModel>) request.getAttribute("products");
 
-            for (int i=0; i<products.size(); i++) {
+            for (ProductViewModel product: products) {
         %>
         <tr>
-            <td><%= products.get(i).getId() %></td>
-            <td><%= products.get(i).getName() %></td>
-            <td><%= categories.get(i).getName()%></td>
-            <td><%= products.get(i).getDescription() %></td>
+            <td><%= product.getId() %></td>
+            <td><%= product.getName() %></td>
+            <td><%= product.getCategoryName()%></td>
+            <td><%= product.getDescription() %></td>
         </tr>
         <%
             }
