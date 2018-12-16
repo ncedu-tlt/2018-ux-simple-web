@@ -1,7 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="ru.ncedu.simpleweb.models.ProductViewModel" %>
-<%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
     <title>Products</title>
@@ -19,31 +17,27 @@
     <div class="line _title">
         <h2>Products</h2>
     </div>
+    <div class="line _bordered">
+        <a href="products/add">Add</a>
+    </div>
 
-
-<div class="line _table">
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Description</th>
-        </tr>
-        <%
-            List<ProductViewModel> products = (List<ProductViewModel>) request.getAttribute("products");
-
-            for (ProductViewModel product: products) {
-        %>
-        <tr>
-            <td><%= product.getId() %></td>
-            <td><%= product.getName() %></td>
-            <td><%= product.getCategoryName()%></td>
-            <td><%= product.getDescription() %></td>
-        </tr>
-        <%
-            }
-        %>
-    </table>
-</div>
+    <div class="line _table">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Description</th>
+            </tr>
+            <c:forEach items="${requestScope.products}" var="product">
+                <tr>
+                    <td>${product.id}</td>
+                    <td>${product.name}</td>
+                    <td>${product.categoryName}</td>
+                    <td>${product.description}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
 </body>
 </html>
