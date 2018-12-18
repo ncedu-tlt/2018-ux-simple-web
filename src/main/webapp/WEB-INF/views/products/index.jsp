@@ -28,6 +28,7 @@
                 <th>Name</th>
                 <th>Category</th>
                 <th>Description</th>
+                <th>Editing</th>
             </tr>
             <c:forEach items="${requestScope.products}" var="product">
                 <tr>
@@ -35,6 +36,7 @@
                     <td>${product.name}</td>
                     <td>${product.categoryName}</td>
                     <td>${product.description}</td>
+                    <td><a href="products/edit?productId=${product.id}">edit</a></td>
                 </tr>
             </c:forEach>
         </table>
