@@ -2,47 +2,47 @@ package ru.ncedu.simpleweb.models;
 
 public class City implements Cloneable {
 
-    private long id;
+    	private long id;
 	private String name;
 	private String phoneExtension;
-    private String description;
+    	private String description;
     
-    public City(){
+    	public City() {
 
 	}
 
-	public City(long id){
+	public City(long id) {
         	this.id = id;
 	}
 
-	public City(long id, String name, String phoneExtension, String description){
+	public City(long id, String name, String phoneExtension, String description) {
         	this.id = id;
 		this.name = name;
 		this.phoneExtension = phoneExtension;
 		this.description = description;
 	}
 
-	public City (City source){
+	public City (City source) {
         	this(source.getId(), source.getName(), source.getPhoneExtension(), source.getDescription());
     	}
 
-	public long getId(){
+	public long getId() {
         	return id;
 	}
 
-	public void setId(long id){
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public String getName(){
+	public String getName() {
 		return name;
 	}
 
-	public void setName(String name){
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getPhoneExtension(){
+	public String getPhoneExtension() {
         	return phoneExtension;
 	}
 

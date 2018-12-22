@@ -11,8 +11,6 @@ public class CitiesRepository implements Repository<City> {
 
     private static CitiesRepository instance;
 
-    private final List<City> cities;
-
     private CitiesRepository() {
         cities = new ArrayList<>();
     }
