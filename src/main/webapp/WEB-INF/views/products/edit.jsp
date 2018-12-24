@@ -11,18 +11,20 @@
     <link rel="stylesheet" type="text/css" href="css/categories.css">
 </head>
 <body>
+<script type="text/javascript" src="js/products.js" ></script>
+
 <div class="header">
     <h1>Edit Product</h1>
 </div>
 <div class="line _form">
-    <form class="form" method="post">
+    <form id="form" class="form" method="post" onsubmit="return isValidForm()">
         <div id="productId" name="productId" value="${requestScope.product.id}"></div>
         <div class="form__row">
             <div class="form__cell _label">
-                <label class="form__label" for="name">Name</label>
+                <label class="form__label" for="productName">Name</label>
             </div>
             <div class="form__cell">
-                <input class="form__input" type="text" id="name" name="name" value="${requestScope.product.name}"/>
+                <input class="form__input" type="text" id="productName" name="name" value="${requestScope.product.name}"/>
             </div>
         </div>
 
@@ -45,18 +47,14 @@
 
         <div class="form__row">
             <div class="form__cell _label">
-                <label class="form__label" for="description">Description</label>
+                <label class="form__label" for="productDescription">Description</label>
             </div>
             <div class="form__cell">
-                <textarea class="form__area" id="description" name="description">${requestScope.product.description}</textarea>
+                <textarea class="form__area" id="productDescription" name="description">${requestScope.product.description}</textarea>
             </div>
         </div>
 
-        <div class="form__row">
-            <c:if test="${requestScope.error != null}">
-                <div class="form__error">Please, fill up all fields before submitting the form</div>
-            </c:if>
-        </div>
+        <div class="form__row" id="error"></div>
 
         <div class="form__row">
             <button class="form__button" type="submit">Edit</button>
