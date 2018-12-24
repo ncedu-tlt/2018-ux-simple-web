@@ -32,12 +32,6 @@
             <artifactId>postgresql</artifactId>
             <version>42.1.4</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.json/json -->
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20180813</version>
-        </dependency>
     </dependencies>
 
     <build>
