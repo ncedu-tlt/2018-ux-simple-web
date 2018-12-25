@@ -58,7 +58,7 @@ public class ProductsAddServlet extends HttpServlet {
     }
 
     private boolean isValid(String name, String description, String categoryIdStr) {
-        if (name == null && description == null && categoryIdStr == null) {
+        if (name == null || description == null || categoryIdStr == null) {
             return false;
         } else {
             String nameWithoutSpace = name.trim();
