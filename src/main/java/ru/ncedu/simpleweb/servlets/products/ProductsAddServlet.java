@@ -34,7 +34,7 @@ public class ProductsAddServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String name = req.getParameter(NAME_PARAM);
         String description = req.getParameter(DESCRIPTION_PARAM);
         String categoryIdStr = req.getParameter(CATEGORY_PARAM);
@@ -58,9 +58,15 @@ public class ProductsAddServlet extends HttpServlet {
     }
 
     private boolean isValid(String name, String description, String categoryIdStr) {
-
-        return name != null && !name.isEmpty() &&
-                description != null && !description.isEmpty() &&
-                categoryIdStr != null && !categoryIdStr.isEmpty();
+        if (name == null || description == null || categoryIdStr == null) {
+            return false;
+        } else {
+            String nameWithoutSpace = name.trim();
+            String categoryIdStrWithoutSpace = categoryIdStr.trim();
+            String descriptionWithoutSpace = description.trim();
+            return !nameWithoutSpace.isEmpty()
+                    && !descriptionWithoutSpace.isEmpty()
+                    && !categoryIdStrWithoutSpace.isEmpty();
+        }
     }
 }

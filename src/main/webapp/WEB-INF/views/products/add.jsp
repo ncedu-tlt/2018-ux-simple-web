@@ -9,11 +9,14 @@
 
     <base href="${pageContext.request.contextPath}/" />
     <link rel="stylesheet" type="text/css" href="css/categories.css">
+
 </head>
 <body>
+
 <div class="header">
     <h1>Add Product</h1>
 </div>
+
 <div class="line _form">
     <form class="form" method="post">
         <div class="form__row">
@@ -21,7 +24,7 @@
                 <label class="form__label" for="name">Name</label>
             </div>
             <div class="form__cell">
-                <input class="form__input" type="text" id="name" name="name" />
+                <input class="form__input js_productName" type="text" id="name" name="name" />
             </div>
         </div>
 
@@ -30,10 +33,10 @@
                 <label class="form__label" for="category">Category</label>
             </div>
 
-            <select id="category" name="category" size="1"  >
+            <select class="js_category" id="category" name="category" size="1"  >
                 <option value="" style="display:none;"></option>
                 <c:forEach items="${requestScope.categories}" var="category">
-                <option value= "${category.id}"> ${category.name}  </option>
+                    <option value= "${category.id}"> ${category.name}  </option>
                 </c:forEach>
             </select>
         </div>
@@ -43,13 +46,14 @@
                 <label class="form__label" for="description">Description</label>
             </div>
             <div class="form__cell">
-                <textarea class="form__area" id="description" name="description"></textarea>
+                <textarea class="form__area js_productDescription" id="description" name="description"></textarea>
             </div>
         </div>
 
-        <div class="form__row">
+        <div class="form__row" >
+            <div class="js_error form__error _hidden">Please, fill up all fields before submitting the form</div>
             <c:if test="${requestScope.error != null}">
-                <div class="form__error">Please, fill up all fields before submitting the form</div>
+                <div class="form__error">Error in the input data.</div>
             </c:if>
         </div>
 
@@ -58,7 +62,8 @@
             <button class="form__button" type="reset">Clear</button>
         </div>
     </form>
-</div>
 
+</div>
+<script type="text/javascript" src="js/products.js" ></script>
 </body>
 </html>

@@ -153,3 +153,7 @@ textarea:active {
     color: #fff;
     background-color: #003869;
 }
+
+._hidden{
+    display: none;
+}
