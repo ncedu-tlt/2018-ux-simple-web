@@ -1,10 +1,10 @@
-document.getElementsByClassName('form')[0].onsubmit = function () {
-    var productName = document.getElementsByClassName('js_productName')[0].value;
+document.querySelector('.form').onsubmit = function () {
+    var productName = document.querySelector('.js_productName').value;
 
-    var categoryElement = document.getElementsByClassName('js_category')[0];
+    var categoryElement = document.querySelector('.js_category');
     var categoryName = categoryElement.options[categoryElement.selectedIndex].value;
 
-    var productDescription = document.getElementsByClassName('js_productDescription')[0].value;
+    var productDescription = document.querySelector('.js_productDescription').value;
 
     var isValid = productName && categoryName && productDescription;
     if(!isValid){
@@ -17,7 +17,7 @@ document.getElementsByClassName('form')[0].onsubmit = function () {
 };
 
 function showErrorMessage(){
-    var errorElement = document.getElementsByClassName('js_error')[0];
+    var errorElement = document.querySelector('.js_error');
     errorElement.classList.remove('_hidden');
 }
 

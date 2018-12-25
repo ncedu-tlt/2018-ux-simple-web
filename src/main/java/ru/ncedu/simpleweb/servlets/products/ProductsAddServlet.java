@@ -59,12 +59,12 @@ public class ProductsAddServlet extends HttpServlet {
 
     private boolean isValid(String name, String description, String categoryIdStr) {
 
-        String nameWithoutSpace = name.replaceAll("\\s", "");
-        String categoryIdStrWithoutSpace = categoryIdStr.replaceAll("\\s", "");
-        String descriptionWithoutSpace = description.replaceAll("\\s", "");
-        return !nameWithoutSpace.isEmpty() &&
-                !categoryIdStrWithoutSpace.isEmpty() &&
-                !descriptionWithoutSpace.isEmpty();
+        String nameWithoutSpace = name.trim();
+        String categoryIdStrWithoutSpace = categoryIdStr.trim();
+        String descriptionWithoutSpace = description.trim();
+        return name != null && !nameWithoutSpace.isEmpty() &&
+                description != null && !descriptionWithoutSpace.isEmpty() &&
+                categoryIdStr != null && !categoryIdStrWithoutSpace.isEmpty();
     }
 
 }
