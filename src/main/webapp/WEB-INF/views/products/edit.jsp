@@ -11,20 +11,19 @@
     <link rel="stylesheet" type="text/css" href="css/categories.css">
 </head>
 <body>
-<script type="text/javascript" src="js/products.js" ></script>
 
 <div class="header">
     <h1>Edit Product</h1>
 </div>
 <div class="line _form">
-    <form id="form" class="form" method="post" onsubmit="return isValidForm()">
+    <form class="form"  method="post">
         <div id="productId" name="productId" value="${requestScope.product.id}"></div>
         <div class="form__row">
             <div class="form__cell _label">
-                <label class="form__label" for="productName">Name</label>
+                <label class="form__label" for="name">Name</label>
             </div>
             <div class="form__cell">
-                <input class="form__input" type="text" id="productName" name="name" value="${requestScope.product.name}"/>
+                <input class="form__input js_productName" type="text" id="name" name="name" value="${requestScope.product.name}"/>
             </div>
         </div>
 
@@ -33,7 +32,7 @@
                 <label class="form__label" for="category">Category</label>
             </div>
 
-            <select id="category" name="category" size="1"  >
+            <select  class="js_category" id="category" name="category" size="1" >
                 <c:forEach items="${requestScope.categories}" var="category">
                     <c:if test="${requestScope.categoryId != category.id}">
                         <option value= "${category.id}"> ${category.name}  </option>
@@ -47,14 +46,19 @@
 
         <div class="form__row">
             <div class="form__cell _label">
-                <label class="form__label" for="productDescription">Description</label>
+                <label class="form__label" for="description">Description</label>
             </div>
             <div class="form__cell">
-                <textarea class="form__area" id="productDescription" name="description">${requestScope.product.description}</textarea>
+                <textarea class="form__area js_productDescription" id="description" name="description">${requestScope.product.description}</textarea>
             </div>
         </div>
 
-        <div class="form__row" id="error"></div>
+        <div class="form__row" >
+            <div class="js_error form__error _hidden">Please, fill up all fields before submitting the form</div>
+            <c:if test="${requestScope.error != null}">
+                <div class="form__error">Error in the input data.</div>
+            </c:if>
+        </div>
 
         <div class="form__row">
             <button class="form__button" type="submit">Edit</button>
@@ -62,6 +66,6 @@
         </div>
     </form>
 </div>
-
+<script type="text/javascript" src="js/products.js" ></script>
 </body>
 </html>
