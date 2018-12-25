@@ -1,10 +1,10 @@
-document.getElementById('form').onsubmit = function () {
-    var productName = document.getElementById('productName').value;
+document.getElementsByClassName('form')[0].onsubmit = function () {
+    var productName = document.getElementsByClassName('js_productName')[0].value;
 
-    var categoryElement = document.getElementById('category');
+    var categoryElement = document.getElementsByClassName('js_category')[0];
     var categoryName = categoryElement.options[categoryElement.selectedIndex].value;
 
-    var productDescription = document.getElementById('productDescription').value;
+    var productDescription = document.getElementsByClassName('js_productDescription')[0].value;
 
     var isValid = productName && categoryName && productDescription;
     if(!isValid){
@@ -17,6 +17,7 @@ document.getElementById('form').onsubmit = function () {
 };
 
 function showErrorMessage(){
-    document.getElementById('error').style.display = "block";
+    var errorElement = document.getElementsByClassName('js_error')[0];
+    errorElement.classList.remove('_hidden');
 }
 
