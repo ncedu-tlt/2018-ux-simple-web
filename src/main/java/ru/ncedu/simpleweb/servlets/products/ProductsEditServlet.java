@@ -79,12 +79,15 @@ public class ProductsEditServlet extends HttpServlet {
     }
 
     private boolean isValid(String name, String description, String categoryIdStr) {
-
-        String nameWithoutSpace = name.trim();
-        String categoryIdStrWithoutSpace = categoryIdStr.trim();
-        String descriptionWithoutSpace = description.trim();
-        return name != null && !nameWithoutSpace.isEmpty() &&
-                description != null && !descriptionWithoutSpace.isEmpty() &&
-                categoryIdStr != null && !categoryIdStrWithoutSpace.isEmpty();
+        if (name == null && description == null && categoryIdStr == null) {
+            return false;
+        } else {
+            String nameWithoutSpace = name.trim();
+            String categoryIdStrWithoutSpace = categoryIdStr.trim();
+            String descriptionWithoutSpace = description.trim();
+            return !nameWithoutSpace.isEmpty()
+                    && !descriptionWithoutSpace.isEmpty()
+                    && !categoryIdStrWithoutSpace.isEmpty();
+        }
     }
 }
