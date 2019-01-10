@@ -1,25 +1,20 @@
-document.querySelector('.js_delete').onclick = function() {
-    var productId = document.querySelector(".js_productId").innerHTML;
-    var data = {"productId": productId};
+$('.js_delete').on('click',function(){
+    var productId = $(this).closest('tr').find('.js_productId').text();
+
     $.ajax({
-        type: "POST",
-        data: data,
-        url: 'products/remove',
-        success: function (serverData)
-        {
-            if(serverData.serverInfo === "success") {
-                $('.js_' + productId).remove();
-            }
-            else{
+        url: 'products/remove?productId=' + productId,
+        type: 'DELETE',
+        success: function (serverData) {
+            if (serverData.serverInfo === "success") {
+                $('.js_product' + productId).remove();
+            } else {
                 showErrorMessage();
             }
         },
-        error: function (e)
-        {
-            showErrorMessage();
-        }
+        error: showErrorMessage,
     });
-};
+});
+
 
 function showErrorMessage(){
     var errorElement = document.querySelector('.js_error');

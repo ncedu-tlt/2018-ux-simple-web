@@ -39,7 +39,7 @@
                 <th>Delete</th>
             </tr>
             <c:forEach items="${requestScope.products}" var="product">
-                <tr class="js_${product.id}">
+                <tr class="js_product${product.id}">
                     <td class="js_productId">${product.id}</td>
                     <td>${product.name}</td>
                     <td>${product.categoryName}</td>
@@ -50,7 +50,7 @@
             </c:forEach>
         </table>
     </div>
-    <script type="text/javascript" src="js/products.js" ></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/products.js" ></script>
 </body>
 </html>
