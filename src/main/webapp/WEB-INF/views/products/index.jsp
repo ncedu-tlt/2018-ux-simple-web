@@ -39,7 +39,7 @@
                 <th>Delete</th>
             </tr>
             <c:forEach items="${requestScope.products}" var="product">
-                <tr class="js_product${product.id}">
+                <tr>
                     <td class="js_productId">${product.id}</td>
                     <td>${product.name}</td>
                     <td>${product.categoryName}</td>
