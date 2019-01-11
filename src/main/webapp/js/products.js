@@ -1,12 +1,15 @@
 $('.js_delete').on('click',function(){
-    var productId = $(this).closest('tr').find('.js_productId').text();
+
+    var productTr = $(this).closest('tr');
+    var productId = productTr.find('.js_productId').text();
 
     $.ajax({
         url: 'products/remove?productId=' + productId,
         type: 'DELETE',
         success: function (serverData) {
-            if (serverData.serverInfo === "success") {
-                $('.js_product' + productId).remove();
+            if (serverData.isSuccess) {
+                hideErrorMessage();
+                productTr.remove();
             } else {
                 showErrorMessage();
             }
@@ -19,6 +22,11 @@ $('.js_delete').on('click',function(){
 function showErrorMessage(){
     var errorElement = document.querySelector('.js_error');
     errorElement.classList.remove('_hidden');
+}
+
+function hideErrorMessage(){
+    var errorElement = document.querySelector('.js_error');
+    errorElement.classList.add('_hidden');
 }
 
 document.querySelector('.form').onsubmit = function () {

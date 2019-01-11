@@ -24,7 +24,7 @@ public class ProductsRemoveServlet extends HttpServlet {
         if(productIdStr == null || productIdStr.isEmpty()) {
             try (PrintWriter out = response.getWriter()) {
                 JSONObject jsonEnt = new JSONObject();
-                jsonEnt.put("serverInfo", "fail");
+                jsonEnt.put("isSuccess", false);
                 out.print(jsonEnt.toString());
             }
             return;
@@ -35,9 +35,9 @@ public class ProductsRemoveServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             JSONObject jsonEnt = new JSONObject();
             if (success) {
-                jsonEnt.put("serverInfo", "success");
+                jsonEnt.put("isSuccess", true);
             } else {
-                jsonEnt.put("serverInfo", "fail");
+                jsonEnt.put("isSuccess", false);
             }
             out.print(jsonEnt.toString());
         }
