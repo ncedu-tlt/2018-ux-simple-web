@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductsRepository implements Repository<Product> {
+public class ProductsRepository implements Repository<Product, Long> {
 
     private static ProductsRepository instance;
 
@@ -58,7 +58,7 @@ public class ProductsRepository implements Repository<Product> {
     }
 
     @Override
-    public Product get(long id) {
+    public Product get(Long id) {
 
         Connection connection = DBUtils.getConnection();
         PreparedStatement statement = null;
@@ -156,11 +156,11 @@ public class ProductsRepository implements Repository<Product> {
     }
 
     public boolean remove(Product product) {
-        return remove(product.getId());
+        return removeById(product.getId());
     }
 
     @Override
-    public boolean remove(long id) {
+    public boolean removeById(Long id) {
         Connection connection = DBUtils.getConnection();
         PreparedStatement statement = null;
 
