@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoriesRepository implements Repository<Category> {
+public class CategoriesRepository implements Repository<Category, Long> {
 
     private static CategoriesRepository instance;
 
@@ -51,7 +51,7 @@ public class CategoriesRepository implements Repository<Category> {
     }
 
     @Override
-    public Category get(long id) {
+    public Category get(Long id) {
         Connection connection = DBUtils.getConnection();
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -137,11 +137,11 @@ public class CategoriesRepository implements Repository<Category> {
     }
 
     public boolean remove(Category category) {
-        return remove(category.getId());
+        return removeById(category.getId());
     }
 
     @Override
-    public boolean remove(long id) {
+    public boolean removeById(Long id) {
         Connection connection = DBUtils.getConnection();
         PreparedStatement statement = null;
 
