@@ -2,7 +2,7 @@ package ru.ncedu.simpleweb.repositories;
 
 import java.util.List;
 
-public interface Repository<T,Id> {
+public interface Repository<T, Id> {
     List<T> get();
     T get(Id id);
     T add(T object);

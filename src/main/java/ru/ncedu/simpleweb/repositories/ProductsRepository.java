@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductsRepository implements Repository<Product,Long> {
+public class ProductsRepository implements Repository<Product, Long> {
 
     private static ProductsRepository instance;
 
