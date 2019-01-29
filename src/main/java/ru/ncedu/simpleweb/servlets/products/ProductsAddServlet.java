@@ -1,7 +1,6 @@
 package ru.ncedu.simpleweb.servlets.products;
 
 import ru.ncedu.simpleweb.consts.Views;
-import ru.ncedu.simpleweb.models.Category;
 import ru.ncedu.simpleweb.models.Product;
 import ru.ncedu.simpleweb.repositories.CategoriesRepository;
 import ru.ncedu.simpleweb.repositories.ProductsRepository;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "productsAdd", urlPatterns = {"/products/add"})
 public class ProductsAddServlet extends HttpServlet {
