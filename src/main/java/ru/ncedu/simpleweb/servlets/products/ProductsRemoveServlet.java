@@ -30,8 +30,8 @@ public class ProductsRemoveServlet extends HttpServlet {
             return;
         }
 
-        long productId = Long.parseLong(request.getParameter(PRODUCT_ID_PARAM));
-        boolean success = ProductsRepository.getInstance().remove(productId);
+        Long productId = Long.parseLong(request.getParameter(PRODUCT_ID_PARAM));
+        boolean success = ProductsRepository.getInstance().removeById(productId);
         try (PrintWriter out = response.getWriter()) {
             JSONObject jsonEnt = new JSONObject();
             if (success) {
