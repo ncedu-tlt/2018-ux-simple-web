@@ -64,7 +64,42 @@ public class OfferingsRepository implements Repository<Offering, OfferingId> {
 
     @Override
     public Offering get(OfferingId id) {
-        return null;
+
+        Connection connection = DBUtils.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            statement = connection.prepareStatement(
+                    "SELECT * FROM offering " +
+                            "WHERE office_id= ?, product_id = ?");
+            statement.setLong(1, id.getOfficeId());
+            statement.setLong(2, id.getProductId());
+            statement.execute();
+
+            resultSet = statement.getResultSet();
+            if (resultSet.next()) {
+                Offering offering = new Offering();
+                offering.setOfferingPrice(resultSet.getDouble("offering_price"));
+                offering.setOfficeId(resultSet.getLong("office_id"));
+                offering.setProductId(resultSet.getLong("product_id"));
+
+                return offering;
+                /*
+                * finally отработает даже после return ?
+                * */
+            }
+            else{
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        finally {
+            DBUtils.close(resultSet);
+            DBUtils.close(statement);
+            DBUtils.close(connection);
+        }
     }
 
     @Override
@@ -83,7 +118,6 @@ public class OfferingsRepository implements Repository<Offering, OfferingId> {
             statement.setLong(3, object.getProductId());
             statement.execute();
 
-            resultSet = statement.getResultSet();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
