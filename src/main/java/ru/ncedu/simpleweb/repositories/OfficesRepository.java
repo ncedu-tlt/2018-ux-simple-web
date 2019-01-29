@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OfficesRepository implements Repository<Office>{
+public class OfficesRepository implements Repository<Office, Long>{
 
     private static OfficesRepository instance;
 
@@ -59,7 +59,7 @@ public class OfficesRepository implements Repository<Office>{
     }
 
     @Override
-    public Office get(long id) {
+    public Office get(Long id) {
         Connection connection = DBUtils.getConnection();
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -151,11 +151,11 @@ public class OfficesRepository implements Repository<Office>{
 
     @Override
     public boolean remove(Office object) {
-        return remove(object.getId());
+        return removeById(object.getId());
     }
 
     @Override
-    public boolean remove(long id) {
+    public boolean removeById(Long id) {
         Connection connection = DBUtils.getConnection();
         PreparedStatement statement = null;
 
