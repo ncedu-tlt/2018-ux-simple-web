@@ -18,4 +18,9 @@ public class Views {
     public static final String PRODUCTS_ADD = PRODUCTS_BASE + "/add.jsp";
     public static final String PRODUCTS_EDIT = PRODUCTS_BASE + "/edit.jsp";
 
+
+    // Offering
+    public static final String OFFERINGS_BASE = VIEWS_BASE + "/offerings";
+    public static final String OFFERINGS = OFFERINGS_BASE + "/index.jsp";
+
 }

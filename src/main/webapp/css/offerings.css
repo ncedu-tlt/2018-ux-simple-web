@@ -1,0 +1,57 @@
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+p {
+    padding: 10px;
+}
+
+thead {
+    color: #fff;
+    background: #2e82c3;
+}
+
+th {
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+tbody tr {
+    background-color: #cbdfef;
+    color: #434955;
+}
+
+tbody tr:hover {
+    background-color: #a2c3dd;
+    transition-duration: 0.2s;
+}
+
+tbody th:nth-child(4) p {
+    cursor: pointer;
+}
+
+tbody th:nth-child(4):hover p {
+    color: white;
+    transition-duration: 0.2s;
+}
+
+tbody th:nth-child(5) p {
+    background-color: red;
+    cursor: pointer;
+}
+
+tbody th:nth-child(5) p:hover {
+    color: white;
+    transition-duration: 0.2s;
+}
+
+.error{
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    border: 5px solid red;
+    font-size: 24px;
+    color: red;
+}

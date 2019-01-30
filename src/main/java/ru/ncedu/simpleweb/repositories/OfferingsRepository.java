@@ -85,9 +85,6 @@ public class OfferingsRepository implements Repository<Offering, OfferingId> {
                 offering.setProductId(resultSet.getLong("product_id"));
 
                 return offering;
-                /*
-                * finally отработает даже после return ?
-                * */
             }
             else{
                 return null;
