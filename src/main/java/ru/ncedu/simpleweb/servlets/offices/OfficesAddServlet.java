@@ -2,6 +2,7 @@ package ru.ncedu.simpleweb.servlets.offices;
 
 import ru.ncedu.simpleweb.consts.Views;
 import ru.ncedu.simpleweb.models.Office;
+import ru.ncedu.simpleweb.repositories.CitiesRepository;
 import ru.ncedu.simpleweb.repositories.OfficesRepository;
 
 import javax.servlet.ServletException;
@@ -23,6 +24,7 @@ public class OfficesAddServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute(CITY_ATTR, CitiesRepository.getInstance().get());
         req.getRequestDispatcher(Views.OFFICES_ADD).forward(req, resp);
     }
 
@@ -30,12 +32,12 @@ public class OfficesAddServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
         String name = req.getParameter(NAME_PARAM);
         String phoneNumber = req.getParameter(PHONE_NUMBER_PARAM);
-//        String city = req.getParameter(CITY_PARAM);
+        String city = req.getParameter(CITY_PARAM);
 
-//        long cityId = Long.parseLong(city);
+        long cityId = Long.parseLong(city);
         Office office = new Office();
         office.setName(name);
-        office.setCityId(1);
+        office.setCityId(cityId);
         office.setPhoneNumber(phoneNumber);
 
         OfficesRepository.getInstance().add(office);

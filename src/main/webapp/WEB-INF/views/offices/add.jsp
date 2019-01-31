@@ -22,21 +22,22 @@
     <form class="form" method="post">
 
         <div class="form_row">
-            <div class="form_cell _label">
-                <label class="form_label" for="name">Name</label>
-            </div>
-            <div class="form_cell">
-                <input class="form_input" type="text" id="name" name="name"/>
-            </div>
+            <label class="form_label" for="name">Name</label>
+            <input class="form_input" type="text" id="name" name="name"/>
         </div>
 
         <div class="form_row">
-            <div class="form_cell _label">
-                <label class="form_label" for="phone_number">Phone number</label>
-            </div>
-            <div class="form_cell">
-                <input class="form_input" type="tel" id="phone_number" name="phone_number"/>
-            </div>
+            <label class="form_label" for="phone_number">Phone number</label>
+            <input class="form_input" type="tel" id="phone_number" name="phone_number"/>
+        </div>
+
+        <div class="form_row">
+            <label class="form_label" for="city">City</label>
+            <select class="js_category" id="city" name="city" size="1">
+                <c:forEach items="${requestScope.city}" var="city">
+                    <option value="${city.id}"> ${city.name} </option>
+                </c:forEach>
+            </select>
         </div>
 
         <div class="form_row">
