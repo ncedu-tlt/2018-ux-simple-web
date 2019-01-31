@@ -26,6 +26,10 @@
                 <div class="list-icon"></div>
                 <a href="products">Products</a>
             </li>
+            <li>
+                <div class="list-icon"></div>
+                <a href="offices">Offices</a>
+            </li>
         </ul>
     </div>
 </body>
