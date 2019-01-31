@@ -12,7 +12,6 @@ public class CitiesRepository implements Repository<City> {
     private static CitiesRepository instance;
 
     private CitiesRepository() {
-        cities = new ArrayList<>();
     }
 
     public static CitiesRepository getInstance() {
@@ -27,6 +26,8 @@ public class CitiesRepository implements Repository<City> {
         Connection connection = DBUtils.getConnection();
         Statement statement = null;
         ResultSet resultSet = null;
+        
+        List<City> cities = new ArrayList<>();
 
         try {
             statement = connection.createStatement();
@@ -37,8 +38,10 @@ public class CitiesRepository implements Repository<City> {
                 city.setName(resultSet.getString("city_name"));
                 city.setPhoneExtension(resultSet.getString("city_phone_extension"));
                 city.setDescription(resultSet.getString("city_description"));
+                
+                cities.add(city);
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             DBUtils.close(resultSet);
