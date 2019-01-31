@@ -1,0 +1,42 @@
+@import "common.css";
+
+.form_row{
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.form_input{
+    padding: 10px;
+    border: 1px solid black!important;
+    margin-left: 20px;
+}
+
+button{
+    font-weight: bold;
+    font-size: 25px;
+    padding: 10px;
+    color: #003869;
+    border: 3px solid #003869;
+}
+
+button:nth-child(2){
+    margin-left: 20px;
+}
+
+select{
+    margin-left: 20px;
+    width: 200px;
+    padding: 10px;
+}
+
+.form_row_error{
+    background: red;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.form_error{
+    color: white;
+    font-weight: bold;
+}
