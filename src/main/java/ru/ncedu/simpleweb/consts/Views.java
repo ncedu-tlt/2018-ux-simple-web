@@ -27,4 +27,8 @@ public class Views {
     // Offering
     public static final String OFFERINGS_BASE = VIEWS_BASE + "/offerings";
     public static final String OFFERINGS = OFFERINGS_BASE + "/index.jsp";
+
+    //Countries
+    private static final String COUNTRIES_BASE = VIEWS_BASE + "/countries";
+    public static final String COUNTRIES = COUNTRIES_BASE + "/index.jsp";
 }
