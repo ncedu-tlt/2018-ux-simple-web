@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -23,6 +24,25 @@
 <div class="line _title">
     <h2>List:</h2>
 </div>
-<p>in the development</p>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone number</th>
+        <th>City name</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <c:forEach items="${requestScope.offices}" var="office">
+        <tr>
+            <th>${office.id}</th>
+            <th>${office.name}</th>
+            <th>${office.phoneNumber}</th>
+            <th>${office.cityName}</th>
+            <th>edit</th>
+            <th>delete</th>
+        </tr>
+    </c:forEach>
+</table>
 </body>
 </html>
