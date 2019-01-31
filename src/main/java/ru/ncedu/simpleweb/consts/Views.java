@@ -18,4 +18,10 @@ public class Views {
     public static final String PRODUCTS_ADD = PRODUCTS_BASE + "/add.jsp";
     public static final String PRODUCTS_EDIT = PRODUCTS_BASE + "/edit.jsp";
 
+    // Offices
+    private static final String OFFICES_BASE = VIEWS_BASE + "/offices";
+    public static final String OFFICES = OFFICES_BASE + "/index.jsp";
+    public static final String OFFICES_ADD = OFFICES_BASE + "/add.jsp";
+    public static final String OFFICES_EDIT = OFFICES_BASE + "/edit.jsp";
+
 }
