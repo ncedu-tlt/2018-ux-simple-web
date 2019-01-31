@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CitiesRepository implements Repository<City> {
+public class CitiesRepository implements Repository<City, Long> {
 
     private static CitiesRepository instance;
 
@@ -53,7 +53,7 @@ public class CitiesRepository implements Repository<City> {
     }
 
     @Override
-    public City get(long id) {
+    public City get(Long id) {
         Connection connection = DBUtils.getConnection();
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -142,11 +142,11 @@ public class CitiesRepository implements Repository<City> {
     }
 
     public boolean remove(City city) {
-        return remove(city.getId());
+        return removeById(city.getId());
     }
 
     @Override
-    public boolean remove(long id) {
+    public boolean removeById(Long id) {
         Connection connection = DBUtils.getConnection();
         PreparedStatement statement = null;
 
