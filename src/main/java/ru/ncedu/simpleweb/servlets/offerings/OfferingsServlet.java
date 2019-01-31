@@ -21,7 +21,7 @@ public class OfferingsServlet extends HttpServlet {
 
     private final String OFFERINGS_ATTR = "offerings";
 
-//Сокращать response до resp ведь не общепринято? res просто можно?
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         List<Offering> offeringsRepository = OfferingsRepository.getInstance().get();

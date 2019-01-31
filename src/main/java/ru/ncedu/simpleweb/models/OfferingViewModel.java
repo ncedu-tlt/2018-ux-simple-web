@@ -19,9 +19,7 @@ public class OfferingViewModel {
         this.officeName = office.getName();
         this.offeringPrice = offering.getOfferingPrice();
     }
-/*
-* Сеттеры ведь не обызательны ? в продуктах не было, подумал тоже не писать.
-* */
+
     public long getProductId() {
         return productId;
     }

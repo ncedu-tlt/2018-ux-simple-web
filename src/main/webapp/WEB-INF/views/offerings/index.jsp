@@ -11,13 +11,13 @@
         <base href="${pageContext.request.contextPath}/"/>
     </head>
     <body>
-        <a href="/simple-web/">
+        <a href="${pageContext.request.contextPath}">
             <div class="header">
                 <h1>Our Simple Web App</h1>
             </div>
         </a>
         <div>
-            <a href="/simple-web/"><h3>Add offering(In developing)</h3></a>
+            <a href="${pageContext.request.contextPath}"><h3>Add offering(In developing)</h3></a>
         </div>
         <div>
             <h1>Offering list:</h1>
