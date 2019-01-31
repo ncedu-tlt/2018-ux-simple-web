@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/offices.css">
 </head>
 <body>
-<a href="/simple-web" class="header">
+<a href="${pageContext.request.contextPath}/" class="header">
     <h1>Our Simple Web App</h1>
 </a>
 <div class="line _title">
