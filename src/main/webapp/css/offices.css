@@ -29,3 +29,14 @@ select{
     width: 200px;
     padding: 10px;
 }
+
+.form_row_error{
+    background: red;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.form_error{
+    color: white;
+    font-weight: bold;
+}

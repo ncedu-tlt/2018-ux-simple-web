@@ -21,6 +21,13 @@
 <div class="line _form">
     <form class="form" method="post">
 
+        <c:if test="${requestScope.error != null}">
+            <div class="form_row_error">
+                <div class="form_error">Please, fill up all fields before submitting the form</div>
+                <div class="form_error">Error in the input data.</div>
+            </div>
+        </c:if>
+
         <div class="form_row">
             <label class="form_label" for="name">Name</label>
             <input class="form_input" type="text" id="name" name="name"/>
@@ -33,8 +40,9 @@
 
         <div class="form_row">
             <label class="form_label" for="city">City</label>
-            <select class="js_category" id="city" name="city" size="1">
-                <c:forEach items="${requestScope.city}" var="city">
+            <select class="js_category" id="city" name="city">
+                <option value="">none selected</option>
+                <c:forEach items="${requestScope.cites}" var="city">
                     <option value="${city.id}"> ${city.name} </option>
                 </c:forEach>
             </select>
