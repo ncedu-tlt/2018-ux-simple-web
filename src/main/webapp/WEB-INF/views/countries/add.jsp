@@ -16,7 +16,7 @@
         <h1>Our Simple Web App</h1>
     </div>
 </a>
-<section class="AddForm">
+<section class="AddForm" id="CountryAddForm">
     <h1>Add Form</h1>
     <c:if test="${requestScope.error != null}">
         <span class="error">Error from server</span>
@@ -35,10 +35,11 @@
             <textarea id="FlagImageLinkInput" class="FlagImageLinkInput" name="flag" placeholder="http://"></textarea>
         </div>
         <section class="AddFormButtons">
-            <button type="submit">Add</button>
+            <button type="submit" id="submitButton">Add</button>
             <button type="reset">Clear</button>
         </section>
     </form>
 </section>
+<script type="text/javascript" src="js/countries.js"></script>
 </body>
 </html>
