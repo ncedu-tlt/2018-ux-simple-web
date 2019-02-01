@@ -5,10 +5,10 @@
         <title>Offerings</title>
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link rel="stylesheet" type="text/css" href="css/offerings.css">
-        <link rel="stylesheet" type="text/css" href="css/common.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <base href="${pageContext.request.contextPath}/"/>
+        <link rel="stylesheet" type="text/css" href="css/offerings.css">
+        <link rel="stylesheet" type="text/css" href="css/common.css">
     </head>
     <body>
         <a href="${pageContext.request.contextPath}">
@@ -17,7 +17,7 @@
             </div>
         </a>
         <div>
-            <a href="${pageContext.request.contextPath}"><h3>Add offering(In developing)</h3></a>
+            <a href="offerings/add"><h3>Add offering(In developing)</h3></a>
         </div>
         <div>
             <h1>Offering list:</h1>
@@ -25,8 +25,8 @@
         <c:if test="${requestScope.error != null}">
             <div class="error">Error from server</div>
         </c:if>
-        <div class="table_offerings">
-            <table>
+        <form class="table_offerings">
+            <table class="main_table">
                 <thead class="first">
                     <tr>
                         <th><p>Product name</p></th>
@@ -36,18 +36,27 @@
                         <th></th>
                     </tr>
                 </thead>
+                <script type="text/javascript" >
+                    function handler(productId, officeId) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('DELETE', 'offerings/remove?product_id='+productId+'&office_id='+officeId, false);
+                        xhr.send();
+                        alert(xhr.responseText);
+                    }
+                </script>
                 <tbody>
                     <c:forEach items="${requestScope.offerings}" var="offering">
                         <tr>
                             <th><p>${offering.productName}</p></th>
                             <th><p>${offering.officeName}</p></th>
                             <th><p>${offering.offeringPrice}</p></th>
-                            <th><p>Edit</p></th>
-                            <th><p>Delete</p></th>
+                            <th><a href="offerings/edit?office_id=${offering.officeId}&product_id=${offering.productId}"><p>Edit</p></a></th>
+                            <th><button type="submit"><p id="delete_offering" onclick="handler('${offering.productId}','${offering.officeId}')">Delete</p></button></th>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
-        </div>
+        </form>
+
     </body>
 </html>
