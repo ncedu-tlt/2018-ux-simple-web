@@ -70,6 +70,9 @@ label{
     padding: 6px 15px;
     margin: 10px;
 }
+.none{
+    display: none;
+}
 .addForm button:hover{
     background: #2e82c3;
     transition-duration: 0.2s;

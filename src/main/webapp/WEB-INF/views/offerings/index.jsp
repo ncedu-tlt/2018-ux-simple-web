@@ -25,7 +25,7 @@
         <c:if test="${requestScope.error != null}">
             <div class="error">Error from server</div>
         </c:if>
-        <form class="table_offerings">
+        <div class="js_error none error">Error with delete.</div>
             <table class="main_table">
                 <thead class="first">
                     <tr>
@@ -40,19 +40,18 @@
                 </thead>
                 <tbody>
                     <c:forEach items="${requestScope.offerings}" var="offering">
-                        <tr>
-                            <th><p class="product_id">${offering.productId}</p></th>
+                        <tr class="js_row">
+                            <th><p class="js_product_id">${offering.productId}</p></th>
                             <th><p>${offering.productName}</p></th>
-                            <th><p class="office_id">${offering.officeId}</p></th>
+                            <th><p class="js_office_id">${offering.officeId}</p></th>
                             <th><p>${offering.officeName}</p></th>
                             <th><p>${offering.offeringPrice}</p></th>
                             <th><a href="offerings/edit?office_id=${offering.officeId}&product_id=${offering.productId}"><p>Edit</p></a></th>
-                            <th><p class="delete">Delete</p></th>
+                            <th><p class="js_delete delete">Delete</p></th>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
-        </form>
         <script type="text/javascript" src="js/offering.js" ></script>
     </body>
 </html>

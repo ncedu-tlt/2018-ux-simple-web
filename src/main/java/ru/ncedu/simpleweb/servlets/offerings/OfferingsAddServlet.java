@@ -3,6 +3,7 @@ package ru.ncedu.simpleweb.servlets.offerings;
 
 import ru.ncedu.simpleweb.consts.Views;
 import ru.ncedu.simpleweb.models.Offering;
+import ru.ncedu.simpleweb.models.OfferingId;
 import ru.ncedu.simpleweb.repositories.OfferingsRepository;
 import ru.ncedu.simpleweb.repositories.OfficesRepository;
 import ru.ncedu.simpleweb.repositories.ProductsRepository;
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 
 @WebServlet(name = "offeringsAdd", urlPatterns = {"/offerings/add"})
 public class OfferingsAddServlet extends HttpServlet {
@@ -41,7 +41,6 @@ public class OfferingsAddServlet extends HttpServlet {
         String offeringPriceStr = req.getParameter(OFFERING_PRICE_PARAM);
 
 
-
         if (!isValid(productIdStr, officeIdStr, offeringPriceStr)) {
             req.setAttribute(OFFICES_ATTR, OfficesRepository.getInstance().get());
             req.setAttribute(PRODUCTS_ATTR, ProductsRepository.getInstance().get());
@@ -49,32 +48,32 @@ public class OfferingsAddServlet extends HttpServlet {
             req.getRequestDispatcher(Views.OFFERINGS_ADD).forward(req, res);
             return;
         }
-        try{
+
+        try {
             long productId = Long.parseLong(productIdStr);
             long officeId = Long.parseLong(officeIdStr);
             double offeringPrice = Double.parseDouble(offeringPriceStr);
 
-            Offering offering = new Offering();
-            offering.setProductId(productId);
-            offering.setOfficeId(officeId);
-            offering.setOfferingPrice(offeringPrice);
-
-            OfferingsRepository.getInstance().add(offering);
-
-            res.sendRedirect(req.getContextPath() + "/offerings");
-        } catch (Exception err){
-            String message = err.getMessage();
-            System.out.println(message);
-            int checkError = message.lastIndexOf("ERROR: duplicate key value violates unique constraint");
-            req.setAttribute(OFFICES_ATTR, OfficesRepository.getInstance().get());
-            req.setAttribute(PRODUCTS_ATTR, ProductsRepository.getInstance().get());
-            if(checkError==-1){
-                req.setAttribute(ERROR_ATTR, true);
-                req.getRequestDispatcher(Views.OFFERINGS_ADD).forward(req, res);
-            }else {
+            if (OfferingsRepository.getInstance().get(new OfferingId(officeId, productId)) != null) {
+                req.setAttribute(OFFICES_ATTR, OfficesRepository.getInstance().get());
+                req.setAttribute(PRODUCTS_ATTR, ProductsRepository.getInstance().get());
                 req.setAttribute(ERROR_SAVE_ATTR, true);
                 req.getRequestDispatcher(Views.OFFERINGS_ADD).forward(req, res);
+            } else {
+                Offering offering = new Offering();
+                offering.setProductId(productId);
+                offering.setOfficeId(officeId);
+                offering.setOfferingPrice(offeringPrice);
+
+                OfferingsRepository.getInstance().add(offering);
+
+                res.sendRedirect(req.getContextPath() + "/offerings");
             }
+            } catch (Exception err) {
+            req.setAttribute(OFFICES_ATTR, OfficesRepository.getInstance().get());
+            req.setAttribute(PRODUCTS_ATTR, ProductsRepository.getInstance().get());
+            req.setAttribute(ERROR_ATTR, true);
+            req.getRequestDispatcher(Views.OFFERINGS_ADD).forward(req, res);
         }
 
     }

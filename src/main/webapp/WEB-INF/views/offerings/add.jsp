@@ -21,7 +21,7 @@
 </div>
 <c:if test="${requestScope.error != null}">
     <div class="form_row_error">
-        <div class="form_error">Please, fill up all fields before submitting the form</div>
+        <div class="form_error">Please fill up all the fields in the form with valid data.</div>
     </div>
 </c:if>
 <c:if test="${requestScope.saveError != null}">
