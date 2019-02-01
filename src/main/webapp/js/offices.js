@@ -1,10 +1,11 @@
-
 var btns = document.getElementsByTagName('tr');
 
-for (var i=0; i<btns.length; i++){
-    btns[i].onclick = function () {
-        var row = this;
-        var elem = this.getElementsByClassName('id_th')[0];
+for (var i = 1; i < btns.length; i++) {
+    var del_btn = btns[i].getElementsByClassName('button_delete')[0];
+
+    del_btn.onclick = function () {
+        var parent = this.closest('tr');
+        var elem = parent.getElementsByClassName('id_th')[0];
         var id = elem.innerText;
 
         var xhr = new XMLHttpRequest();
@@ -13,9 +14,9 @@ for (var i=0; i<btns.length; i++){
         xhr.onload = function () {
             var isSuccess = JSON.parse(xhr.responseText);
             if (isSuccess.isSuccess) {
-               row.remove();
+                parent.remove();
             } else {
-
+                alert('error')
             }
         };
         xhr.send(null);
