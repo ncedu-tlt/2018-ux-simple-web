@@ -39,13 +39,13 @@
             <th></th>
         </tr>
         <c:forEach items="${requestScope.offices}" var="office">
-            <tr id="tr${office.id}">
+            <tr>
                 <th class="id_th">${office.id}</th>
                 <th>${office.name}</th>
                 <th>${office.phoneNumber}</th>
                 <th>${office.cityName}</th>
                 <th>edit</th>
-                <th onclick="deleteItem(${office.id})">delete</th>
+                <th class="button_delete">delete</th>
             </tr>
         </c:forEach>
     </table>

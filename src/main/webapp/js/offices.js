@@ -1,30 +1,31 @@
-function deleteItem(id) {
-    // $.ajax({
-    //     url: 'offices/remove?officeId=' + id,
-    //     type: 'DELETE',
-    //     success: function (serverData) {
-    //         if (serverData.isSuccess) {
-    //             // hideErrorMessage();
-    //             document.getElementById("tr"+id).remove();
-    //         } else {
-    //             // showErrorMessage();
-    //         }
-    //     }
-    //     // error: showErrorMessage
-    // });
 
+var btns = document.getElementsByTagName('tr');
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('DELETE', 'offices/remove?officeId=' + id, true);
+for (var i=0; i<btns.length; i++){
+    btns[i].onclick = function () {
+        var row = this;
+        var elem = this.getElementsByClassName('id_th')[0];
+        var id = elem.innerText;
 
-    xhr.onload = function () {
-        var isSuccess = JSON.parse(xhr.responseText);
-        if (isSuccess.isSuccess) {
-            document.getElementById("tr" + id).remove();
-        } else {
-        }
-    };
+        var xhr = new XMLHttpRequest();
+        xhr.open('DELETE', 'offices/remove?officeId=' + id, true);
 
-    xhr.send(null);
+        xhr.onload = function () {
+            var isSuccess = JSON.parse(xhr.responseText);
+            if (isSuccess.isSuccess) {
+               row.remove();
+            } else {
 
+            }
+        };
+        xhr.send(null);
+    }
 }
+
+
+
+
+
+
+
+
