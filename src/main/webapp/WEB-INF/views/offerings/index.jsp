@@ -17,7 +17,7 @@
             </div>
         </a>
         <div>
-            <a href="offerings/add"><h3>Add offering(In developing)</h3></a>
+            <a href="offerings/add"><h3>Add offering</h3></a>
         </div>
         <div>
             <h1>Offering list:</h1>
@@ -36,14 +36,6 @@
                         <th></th>
                     </tr>
                 </thead>
-                <script type="text/javascript" >
-                    function handler(productId, officeId) {
-                        var xhr = new XMLHttpRequest();
-                        xhr.open('DELETE', 'offerings/remove?product_id='+productId+'&office_id='+officeId, false);
-                        xhr.send();
-                        alert(xhr.responseText);
-                    }
-                </script>
                 <tbody>
                     <c:forEach items="${requestScope.offerings}" var="offering">
                         <tr>
@@ -57,6 +49,6 @@
                 </tbody>
             </table>
         </form>
-
+        <script type="text/javascript" src="js/offering.js" ></script>
     </body>
 </html>

@@ -22,6 +22,7 @@ public class OfferingsAddServlet extends HttpServlet {
     private static final String OFFERING_PRICE_PARAM = "offering_price";
 
     private static final String ERROR_ATTR = "error";
+    private static final String ERROR_SAVE_ATTR = "saveError";
     private static final String OFFICES_ATTR = "offices";
     private static final String PRODUCTS_ATTR = "products";
 
@@ -41,6 +42,8 @@ public class OfferingsAddServlet extends HttpServlet {
 
 
         if (!isValid(productIdStr, officeIdStr, offeringPriceStr)) {
+            req.setAttribute(OFFICES_ATTR, OfficesRepository.getInstance().get());
+            req.setAttribute(PRODUCTS_ATTR, ProductsRepository.getInstance().get());
             req.setAttribute(ERROR_ATTR, true);
             req.getRequestDispatcher(Views.OFFERINGS_ADD).forward(req, res);
             return;
@@ -55,7 +58,15 @@ public class OfferingsAddServlet extends HttpServlet {
             offering.setOfferingPrice(offeringPrice);
             OfferingsRepository.getInstance().add(offering);
             res.sendRedirect(req.getContextPath() + "/offerings");
-        }catch (Exception e){
+        }catch (RuntimeException e){
+            req.setAttribute(OFFICES_ATTR, OfficesRepository.getInstance().get());
+            req.setAttribute(PRODUCTS_ATTR, ProductsRepository.getInstance().get());
+            System.out.println(e);
+            req.setAttribute(ERROR_SAVE_ATTR, true);
+            req.getRequestDispatcher(Views.OFFERINGS_ADD).forward(req, res);
+        }catch (Exception err){
+            req.setAttribute(OFFICES_ATTR, OfficesRepository.getInstance().get());
+            req.setAttribute(PRODUCTS_ATTR, ProductsRepository.getInstance().get());
             req.setAttribute(ERROR_ATTR, true);
             req.getRequestDispatcher(Views.OFFERINGS_ADD).forward(req, res);
         }

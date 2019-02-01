@@ -1,7 +1,6 @@
 package ru.ncedu.simpleweb.servlets.offerings;
 
 import org.json.JSONObject;
-import ru.ncedu.simpleweb.consts.Views;
 import ru.ncedu.simpleweb.models.OfferingId;
 import ru.ncedu.simpleweb.repositories.OfferingsRepository;
 
@@ -42,7 +41,7 @@ public class OfferingsRemoveServlet extends HttpServlet {
             boolean success = OfferingsRepository.getInstance().removeById(new OfferingId(officeId,productId));
             try (PrintWriter out = res.getWriter()) {
                 JSONObject jsonEnt = new JSONObject();
-                jsonEnt.put("isSuccess", !success);
+                jsonEnt.put("isSuccess", success);
                 out.print(jsonEnt.toString());
             }
         }catch (Exception e){

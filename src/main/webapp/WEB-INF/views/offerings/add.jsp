@@ -24,6 +24,11 @@
         <div class="form_error">Please, fill up all fields before submitting the form</div>
     </div>
 </c:if>
+<c:if test="${requestScope.saveError != null}">
+    <div class="form_row_error">
+        <div class="form_error">This combination of office and product already exists.</div>
+    </div>
+</c:if>
 <div class="table_offerings">
     <form method="post" class="addForm">
         <table>
@@ -38,7 +43,8 @@
                         <c:forEach items="${requestScope.offices}" var="office">
                             <option value="${office.id}"> ${office.name} </option>
                         </c:forEach>
-                    </select></td>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>
@@ -69,10 +75,7 @@
             </tr>
             </tbody>
         </table>
-
-
     </form>
-
 </div>
 </body>
 </html>

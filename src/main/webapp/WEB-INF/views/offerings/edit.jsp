@@ -17,7 +17,7 @@
     </div>
 </a>
 <div>
-    <h1>Add offering</h1>
+    <h1>Edit offering</h1>
 </div>
 <c:if test="${requestScope.error != null}">
     <div class="form_row_error">
@@ -53,7 +53,7 @@
             </tr>
             <tr>
                 <td>
-                    <button type="submit">Add</button>
+                    <button type="submit">Edit</button>
                     <button type="reset">Clear</button>
                 </td>
             </tr>
