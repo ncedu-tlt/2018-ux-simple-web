@@ -2,11 +2,11 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Countries</title>
+    <title>Countries - Add</title>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="css/common.css">
-    <link rel="stylesheet" type="text/css" href="css/countries.css">
+    <link rel="stylesheet" type="text/css" href="css/countries/countries.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="${pageContext.request.contextPath}/"/>
 </head>
@@ -45,6 +45,13 @@
         </c:forEach>
         </tbody>
     </table>
+    <a href="countries/add" class="AddLink">
+        <div class="Plus">
+            <div class="line1"></div>
+            <div class="line2"></div>
+        </div>
+        <span>Add</span>
+    </a>
 </section>
 </body>
 </html>
