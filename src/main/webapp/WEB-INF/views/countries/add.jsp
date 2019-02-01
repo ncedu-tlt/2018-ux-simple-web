@@ -16,7 +16,7 @@
         <h1>Our Simple Web App</h1>
     </div>
 </a>
-<section class="AddForm" id="CountryAddForm">
+<section class="AddForm">
     <h1>Add Form</h1>
     <c:if test="${requestScope.error != null}">
         <span class="error">Error from server</span>
@@ -24,11 +24,11 @@
     <form class="postForm" method="post">
         <div class="CountryName inputBlock">
             <label for="CountryNameInput">Country name</label>
-            <input id="CountryNameInput" class="CountryNameInput input" type="text" name="countryName" placeholder="Russia">
+            <input id="CountryNameInput" class="CountryNameInput" type="text" name="countryName" placeholder="Russia">
         </div>
         <div class="PhoneExtension inputBlock">
             <label for="PhoneExtensionInput">Phone extension</label>
-            <input id="PhoneExtensionInput" class="PhoneExtensionInput input" type="text" name="phoneExtension" placeholder="+7">
+            <input id="PhoneExtensionInput" class="PhoneExtensionInput" type="text" name="phoneExtension" placeholder="+7">
         </div>
         <div class="FlagImageLink inputBlock">
             <label for="FlagImageLinkInput">Flag image link</label>
