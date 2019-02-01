@@ -27,23 +27,27 @@
     transition-duration: 0.2s;
 }
 
-.main_table tbody th:nth-child(4) p {
+.main_table tbody th:nth-child(6) p {
     cursor: pointer;
 }
 
-.main_table tbody th:nth-child(4):hover p {
+.main_table tbody th:nth-child(6):hover p {
     color: white;
     transition-duration: 0.2s;
 }
 
-.main_table tbody th:nth-child(5) p {
+.main_table tbody th:nth-child(7) p {
     background-color: red;
     cursor: pointer;
 }
 
-.main_table tbody th:nth-child(5) p:hover {
+.main_table tbody th:nth-child(7) p:hover {
     color: white;
     transition-duration: 0.2s;
+}
+
+.main_table .delete{
+    margin: 10px;
 }
 
 .error{
@@ -56,8 +60,8 @@
 }
 
 label{
-    font-size: 22px!important;
-    padding-right: 20px!important;
+    font-size: 22px;
+    padding-right: 20px;
 }
 
 .addForm button{

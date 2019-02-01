@@ -29,7 +29,9 @@
             <table class="main_table">
                 <thead class="first">
                     <tr>
+                        <th><p>Product id</p></th>
                         <th><p>Product name</p></th>
+                        <th><p>Office id</p></th>
                         <th><p>Office name</p></th>
                         <th><p>Offering price</p></th>
                         <th></th>
@@ -39,11 +41,13 @@
                 <tbody>
                     <c:forEach items="${requestScope.offerings}" var="offering">
                         <tr>
+                            <th><p class="product_id">${offering.productId}</p></th>
                             <th><p>${offering.productName}</p></th>
+                            <th><p class="office_id">${offering.officeId}</p></th>
                             <th><p>${offering.officeName}</p></th>
                             <th><p>${offering.offeringPrice}</p></th>
                             <th><a href="offerings/edit?office_id=${offering.officeId}&product_id=${offering.productId}"><p>Edit</p></a></th>
-                            <th><button type="submit"><p id="delete_offering" onclick="handler('${offering.productId}','${offering.officeId}')">Delete</p></button></th>
+                            <th><p class="delete">Delete</p></th>
                         </tr>
                     </c:forEach>
                 </tbody>

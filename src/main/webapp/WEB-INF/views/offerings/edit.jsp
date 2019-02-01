@@ -33,14 +33,14 @@
                     Office:
                 </td>
                 <td>
-                    ${requestScope.offering_view_model.officeName}</td>
+                    ${requestScope.offering.officeName}</td>
             </tr>
             <tr>
                 <td>
                     Product:
                 </td>
                 <td>
-                    ${requestScope.offering_view_model.productName}
+                    ${requestScope.offering.productName}
                 </td>
             </tr>
             <tr>
@@ -48,7 +48,7 @@
                     <label class="form_label" for="offering_price">Offering price</label>
                 </td>
                 <td>
-                    <input value="${requestScope.offering_view_model.offeringPrice}" step="any" type="number" id="offering_price" name="offering_price"/>
+                    <input value="${requestScope.offering.offeringPrice}" step="any" type="number" id="offering_price" name="offering_price"/>
                 </td>
             </tr>
             <tr>

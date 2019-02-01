@@ -18,9 +18,7 @@ import java.io.IOException;
 public class OfferingEditServlet extends HttpServlet {
 
 
-    private static final String PRODUCTS_ATTR = "products";
-    private static final String OFFERING_VIEW_MODEL_ATTR = "offering_view_model";
-    private static final String OFFICES_ATTR = "offices";
+    private static final String OFFERING_ATTR = "offering";
 
     private static final String PRODUCT_ID_GET_PARAM = "product_id";
     private static final String OFFICE_ID_GET_PARAM = "office_id";
@@ -45,7 +43,7 @@ public class OfferingEditServlet extends HttpServlet {
 
             OfferingViewModel offeringViewModel = new OfferingViewModel(offering, product, office);
 
-            req.setAttribute(OFFERING_VIEW_MODEL_ATTR, offeringViewModel);
+            req.setAttribute(OFFERING_ATTR, offeringViewModel);
 
             req.getRequestDispatcher(Views.OFFERINGS_EDIT).forward(req, res);
         } catch (Exception e) {
