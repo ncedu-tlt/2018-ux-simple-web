@@ -24,10 +24,6 @@
 <div class="line _title">
     <h2>List:</h2>
 </div>
-<div></div>
-<c:if test="${requestScope.offices == []}">
-    <div>no offices</div>
-</c:if>
 <c:if test="${requestScope.offices != []}">
     <table>
         <tr>
@@ -40,12 +36,12 @@
         </tr>
         <c:forEach items="${requestScope.offices}" var="office">
             <tr>
-                <th class="id_th">${office.id}</th>
+                <th class="js_id_th">${office.id}</th>
                 <th>${office.name}</th>
                 <th>${office.phoneNumber}</th>
                 <th>${office.cityName}</th>
                 <th>edit</th>
-                <th class="button_delete">delete</th>
+                <th class="js_button_delete">delete</th>
             </tr>
         </c:forEach>
     </table>

@@ -1,11 +1,9 @@
-var btns = document.getElementsByTagName('tr');
+var deleteBtnsMas = document.getElementsByClassName('js_button_delete');
 
-for (var i = 1; i < btns.length; i++) {
-    var del_btn = btns[i].getElementsByClassName('button_delete')[0];
-
-    del_btn.onclick = function () {
+for (var i = 0; i < deleteBtnsMas.length; i++) {
+    deleteBtnsMas[i].onclick = function () {
         var parent = this.closest('tr');
-        var elem = parent.getElementsByClassName('id_th')[0];
+        var elem = parent.getElementsByClassName('js_id_th')[0];
         var id = elem.innerText;
 
         var xhr = new XMLHttpRequest();
@@ -19,7 +17,7 @@ for (var i = 1; i < btns.length; i++) {
                 alert('error')
             }
         };
-        xhr.send(null);
+        xhr.send();
     }
 }
 
