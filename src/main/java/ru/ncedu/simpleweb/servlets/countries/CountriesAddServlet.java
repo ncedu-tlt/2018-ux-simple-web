@@ -14,13 +14,42 @@ import java.io.IOException;
 @WebServlet(name="countriesAdd", urlPatterns = {"/countries/add"})
 public class CountriesAddServlet extends HttpServlet {
 
-    private static final String NAME_PARAM = "name";
-    private static final String DESCRIPTION_PARAM = "description";
+    private static final String NAME_PARAM = "countryName";
+    private static final String PHONE_PARAM = "phoneExtension";
+    private static final String FLAG_PARAM = "flag";
 
     private static final String ERROR_ATTR = "error";
+
+    private boolean isValid(String countryName, String phoneExtension, String flag) {
+        return countryName != null && phoneExtension != null && flag != null;
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
         req.getRequestDispatcher(Views.COUNTRIES_ADD).forward(req, res);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+        String countryName = req.getParameter(NAME_PARAM);
+        String phoneExtension = req.getParameter(PHONE_PARAM);
+        String flag = req.getParameter(FLAG_PARAM);
+
+        if(!isValid(countryName, phoneExtension, flag)){
+            req.setAttribute(ERROR_ATTR, true);
+            req.getRequestDispatcher(Views.COUNTRIES_ADD).forward(req, res);
+            return;
+        }
+
+        Country country = new Country();
+
+        country.setName(countryName);
+        country.setPhoneExtension(phoneExtension);
+        country.setFlag(flag);
+
+        CountriesRepository.getInstance().add(country);
+
+        res.sendRedirect(req.getContextPath() + "/countries");
+
     }
 }

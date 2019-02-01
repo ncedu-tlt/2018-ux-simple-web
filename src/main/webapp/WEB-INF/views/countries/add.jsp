@@ -21,7 +21,7 @@
     <c:if test="${requestScope.error != null}">
         <span class="error">Error from server</span>
     </c:if>
-    <form class="postForm">
+    <form class="postForm" method="post">
         <div class="CountryName inputBlock">
             <label for="CountryNameInput">Country name</label>
             <input id="CountryNameInput" class="CountryNameInput input" type="text" name="countryName" placeholder="Russia">
