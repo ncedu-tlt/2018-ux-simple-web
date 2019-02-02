@@ -43,7 +43,7 @@
                 <th>${office.name}</th>
                 <th>${office.phoneNumber}</th>
                 <th>${office.cityName}</th>
-                <th>edit</th>
+                <th><a class="edit_link" href="offices/edit?officeId=${office.id}">edit</a></th>
                 <th class="js_button_delete">delete</th>
             </tr>
         </c:forEach>
