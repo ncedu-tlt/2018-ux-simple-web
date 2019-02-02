@@ -41,7 +41,7 @@ button:hover{
     display: flex;
     align-items: center;
     margin-top: 20px;
-    width: 80px !important;
+    width: 80px;
 }
 
 .AddLink span{

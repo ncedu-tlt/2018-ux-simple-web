@@ -21,9 +21,9 @@ document.querySelector('form').onsubmit = function () {
 
     var isNumber = /[0-9]/.test(name);
 
-    var isPhoneNumber =  /^\+\d+$/.test(phoneExtension);
+    var isPhoneNumber =  /^\+\d+/.test(phoneExtension);
 
-    var isUrl = /^https:+|^http:+/.test(flag);
+    var isUrl = /^http?:+/.test(flag);
 
     if (name.length === 0 || phoneExtension.length === 0 || flag.length === 0) {
         showErrorMessage('fill in all fields', 3000);

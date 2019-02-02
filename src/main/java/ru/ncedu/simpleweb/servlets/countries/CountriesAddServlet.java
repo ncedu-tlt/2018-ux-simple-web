@@ -10,9 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 @WebServlet(name="countriesAdd", urlPatterns = {"/countries/add"})
 public class CountriesAddServlet extends HttpServlet {
+
+    private static final String COUNTRIES_LIST_REDIRECT = "/countries";
 
     private static final String NAME_PARAM = "countryName";
     private static final String PHONE_PARAM = "phoneExtension";
@@ -21,7 +24,12 @@ public class CountriesAddServlet extends HttpServlet {
     private static final String ERROR_ATTR = "error";
 
     private boolean isValid(String countryName, String phoneExtension, String flag) {
-        return countryName != null && phoneExtension != null && flag != null;
+
+        boolean isCountry = Pattern.matches("[^0-9]", countryName) && !countryName.isEmpty();
+        boolean isPhoneNumber = Pattern.matches("^\\+\\d+", phoneExtension);
+        boolean isFlag = Pattern.matches("^https?:.+", flag);
+
+        return !isCountry && isPhoneNumber && isFlag;
     }
 
     @Override
@@ -49,7 +57,7 @@ public class CountriesAddServlet extends HttpServlet {
 
         CountriesRepository.getInstance().add(country);
 
-        res.sendRedirect(req.getContextPath() + Views.COUNTRIES_BASE);
+        res.sendRedirect(req.getContextPath() + COUNTRIES_LIST_REDIRECT);
 
     }
 }
