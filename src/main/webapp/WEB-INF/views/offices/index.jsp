@@ -24,10 +24,10 @@
 <div class="line _title">
     <h2>List:</h2>
 </div>
-<c:if test="${requestScope.length == 0}">
+<c:if test="${empty requestScope.offices}">
     <div>no offices</div>
 </c:if>
-<c:if test="${requestScope.length != 0}">
+<c:if test="${not empty requestScope.offices}">
     <table>
         <tr>
             <th>ID</th>
