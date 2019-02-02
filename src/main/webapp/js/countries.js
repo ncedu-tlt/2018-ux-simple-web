@@ -1,5 +1,4 @@
-
-function showErrorMessage(message, duration){
+function showErrorMessage(message, duration) {
     var element = document.querySelector('.js_error_message');
 
     element.innerText = message;
@@ -19,29 +18,37 @@ document.querySelector('form').onsubmit = function () {
     var phoneExtension = phoneExtensionInput.value;
     var flag = flagLinkInput.value;
 
-    var isNumber = /[0-9]/.test(name);
+    var COUNTRY_REGEX = /[0-9]/;
+    var PHONE_REGEX = /^\+\d+/;
+    var FLAG_URL_REGEX = /^https?:+/;
 
-    var isPhoneNumber =  /^\+\d+/.test(phoneExtension);
-
-    var isUrl = /^https?:+/.test(flag);
+    var MESSAGE_DURATION = 3000;
 
     if (name.length === 0 || phoneExtension.length === 0 || flag.length === 0) {
-        showErrorMessage('fill in all fields', 3000);
+        showErrorMessage('fill in all fields', MESSAGE_DURATION);
         return false;
-    } else {
-        if (isNumber) {
-            showErrorMessage('Country name must not contain numbers', 3000);
-            return false;
-        } else {
-            if (!isPhoneNumber) {
-                showErrorMessage('Incorrect phone number', 3000);
-                return false;
-            } {
-                    if (!isUrl) {
-                        showErrorMessage('Incorrect link to flag image', 3000);
-                        return false;
-                    }
-                }
-            }
-        }
+    }
+
+    var isNumber = COUNTRY_REGEX.test(name);
+
+    if (isNumber) {
+        showErrorMessage('Country name must not contain numbers', MESSAGE_DURATION);
+        return false;
+    }
+
+    var isPhoneNumber = PHONE_REGEX.test(phoneExtension);
+
+    if (!isPhoneNumber) {
+        showErrorMessage('Incorrect phone number', MESSAGE_DURATION);
+        return false;
+    }
+
+    var isUrl = FLAG_URL_REGEX.test(flag);
+
+    if (!isUrl) {
+        showErrorMessage('Incorrect link to flag image', MESSAGE_DURATION);
+        return false;
+    }
+
+    return true;
 };

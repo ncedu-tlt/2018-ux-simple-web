@@ -23,11 +23,15 @@ public class CountriesAddServlet extends HttpServlet {
 
     private static final String ERROR_ATTR = "error";
 
+    private static final String COUNTRY_REGEX = "[^0-9]";
+    private static final String PHONE_REGEX = "^\\+\\d+";
+    private static final String FLAG_URL_REGEX = "^https?:.+";
+
     private boolean isValid(String countryName, String phoneExtension, String flag) {
 
-        boolean isCountry = Pattern.matches("[^0-9]", countryName) && !countryName.isEmpty();
-        boolean isPhoneNumber = Pattern.matches("^\\+\\d+", phoneExtension);
-        boolean isFlag = Pattern.matches("^https?:.+", flag);
+        boolean isCountry = Pattern.matches(COUNTRY_REGEX, countryName) && !countryName.isEmpty();
+        boolean isPhoneNumber = Pattern.matches(PHONE_REGEX, phoneExtension);
+        boolean isFlag = Pattern.matches(FLAG_URL_REGEX, flag);
 
         return !isCountry && isPhoneNumber && isFlag;
     }
