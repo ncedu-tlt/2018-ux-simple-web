@@ -55,8 +55,15 @@ th{
     padding: 10px;
 }
 th:nth-child(5){
+    cursor: pointer;
     color: greenyellow;
 }
 th:nth-child(6){
+    cursor: pointer;
    color: hotpink;
+}
+th:nth-child(6):hover{
+    transition: 600ms;
+    background: hotpink;
+    color: white;
 }

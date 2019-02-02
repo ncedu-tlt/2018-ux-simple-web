@@ -24,14 +24,13 @@ public class OfficesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         List<Office> officesRepository = OfficesRepository.getInstance().get();
-
         List<OfficeViewModel> offices = new ArrayList<>();
+
         for (Office office : officesRepository) {
             City city = CitiesRepository.getInstance().get(office.getCityId());
             OfficeViewModel officeViewModel = new OfficeViewModel(office, city);
             offices.add(officeViewModel);
         }
-
 
         req.setAttribute(OFFICES_ATTR, offices);
         req.getRequestDispatcher(Views.OFFICES).forward(req, resp);
