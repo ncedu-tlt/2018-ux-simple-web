@@ -1,50 +1,53 @@
 
-table {
+.main_table {
     border-collapse: collapse;
     border: 1px solid black;
 }
 
-p {
+.main_table p {
     padding: 10px;
 }
 
-thead {
+.main_table thead {
     color: #fff;
     background: #2e82c3;
 }
 
-th {
+.main_table th {
     border-bottom: 1px solid black;
-    padding: 10px;
 }
 
-tbody tr {
+.main_table tbody tr {
     background-color: #cbdfef;
     color: #434955;
 }
 
-tbody tr:hover {
+.main_table tbody tr:hover {
     background-color: #a2c3dd;
     transition-duration: 0.2s;
 }
 
-tbody th:nth-child(4) p {
+.main_table tbody th:nth-child(6) p {
     cursor: pointer;
 }
 
-tbody th:nth-child(4):hover p {
+.main_table tbody th:nth-child(6):hover p {
     color: white;
     transition-duration: 0.2s;
 }
 
-tbody th:nth-child(5) p {
+.main_table tbody th:nth-child(7) p {
     background-color: red;
     cursor: pointer;
 }
 
-tbody th:nth-child(5) p:hover {
+.main_table tbody th:nth-child(7) p:hover {
     color: white;
     transition-duration: 0.2s;
+}
+
+.main_table .delete{
+    margin: 10px;
 }
 
 .error{
@@ -55,3 +58,23 @@ tbody th:nth-child(5) p:hover {
     font-size: 24px;
     color: red;
 }
+
+label{
+    font-size: 22px;
+    padding-right: 20px;
+}
+
+.addForm button{
+    background-color: #a2c3dd;
+    cursor: pointer;
+    padding: 6px 15px;
+    margin: 10px;
+}
+.none{
+    display: none;
+}
+.addForm button:hover{
+    background: #2e82c3;
+    transition-duration: 0.2s;
+}
+

@@ -72,7 +72,7 @@ public class OfferingsRepository implements Repository<Offering, OfferingId> {
         try {
             statement = connection.prepareStatement(
                     "SELECT * FROM offering " +
-                            "WHERE office_id= ?, product_id = ?");
+                            "WHERE office_id= ? AND product_id = ?");
             statement.setLong(1, id.getOfficeId());
             statement.setLong(2, id.getProductId());
             statement.execute();
@@ -101,6 +101,7 @@ public class OfferingsRepository implements Repository<Offering, OfferingId> {
 
     @Override
     public Offering add(Offering object) {
+        Offering offering = new Offering(object);
 
         Connection connection = DBUtils.getConnection();
         PreparedStatement statement = null;
@@ -110,9 +111,9 @@ public class OfferingsRepository implements Repository<Offering, OfferingId> {
             statement = connection.prepareStatement("INSERT INTO offering " +
                     "( offering_price, office_id, product_id )" +
                     " VALUES ( ?, ?, ?) ");
-            statement.setDouble(1, object.getOfferingPrice());
-            statement.setLong(2, object.getOfficeId());
-            statement.setLong(3, object.getProductId());
+            statement.setDouble(1, offering.getOfferingPrice());
+            statement.setLong(2, offering.getOfficeId());
+            statement.setLong(3, offering.getProductId());
             statement.execute();
 
         } catch (SQLException e) {
@@ -123,7 +124,7 @@ public class OfferingsRepository implements Repository<Offering, OfferingId> {
             DBUtils.close(connection);
         }
 
-        return object;
+        return offering;
     }
 
     @Override
@@ -136,7 +137,7 @@ public class OfferingsRepository implements Repository<Offering, OfferingId> {
             statement = connection.prepareStatement(
                     "UPDATE offering " +
                             "SET offering_price = ? " +
-                            "WHERE product_id = ?, office_id = ? ");
+                            "WHERE product_id = ? AND office_id = ? ");
 
             statement.setDouble(1, object.getOfferingPrice());
             statement.setLong(2, object.getProductId());
@@ -165,7 +166,7 @@ public class OfferingsRepository implements Repository<Offering, OfferingId> {
         try {
             statement = connection.prepareStatement(
                     "DELETE FROM offering " +
-                            "WHERE office_id = ?, product_id");
+                            "WHERE office_id = ? AND product_id = ?");
 
             statement.setLong(1, id.getOfficeId());
             statement.setLong(2, id.getProductId());
