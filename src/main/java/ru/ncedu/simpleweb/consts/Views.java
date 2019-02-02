@@ -29,7 +29,7 @@ public class Views {
     public static final String OFFERINGS = OFFERINGS_BASE + "/index.jsp";
 
     //Countries
-    private static final String COUNTRIES_BASE = VIEWS_BASE + "/countries";
+    public static final String COUNTRIES_BASE = VIEWS_BASE + "/countries";
     public static final String COUNTRIES = COUNTRIES_BASE + "/index.jsp";
     public static final String COUNTRIES_ADD = COUNTRIES_BASE + "/add.jsp";
 }

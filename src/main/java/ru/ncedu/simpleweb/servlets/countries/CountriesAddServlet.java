@@ -49,7 +49,7 @@ public class CountriesAddServlet extends HttpServlet {
 
         CountriesRepository.getInstance().add(country);
 
-        res.sendRedirect(req.getContextPath() + "/countries");
+        res.sendRedirect(req.getContextPath() + Views.COUNTRIES_BASE);
 
     }
 }

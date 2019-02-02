@@ -16,26 +16,27 @@
         <h1>Our Simple Web App</h1>
     </div>
 </a>
-<section class="AddForm">
+<section class="add_form">
     <h1>Add Form</h1>
     <c:if test="${requestScope.error != null}">
         <span class="error">Error from server</span>
     </c:if>
-    <form class="postForm" method="post">
-        <div class="CountryName inputBlock">
-            <label for="CountryNameInput">Country name</label>
-            <input id="CountryNameInput" class="CountryNameInput" type="text" name="countryName" placeholder="Russia">
+    <span class="js_error_message error_message"></span>
+    <form>
+        <div class="country_name input_block">
+            <label for="country_name_input">Country name</label>
+            <input id="country_name_input" class="js_country_name_input" type="text" name="countryName" placeholder="Russia">
         </div>
-        <div class="PhoneExtension inputBlock">
-            <label for="PhoneExtensionInput">Phone extension</label>
-            <input id="PhoneExtensionInput" class="PhoneExtensionInput" type="text" name="phoneExtension" placeholder="+7">
+        <div class="phone_extension input_block">
+            <label for="phone_extension_input">Phone extension</label>
+            <input id="phone_extension_input" class="js_phone_extension_input" type="text" name="phoneExtension" placeholder="+7">
         </div>
-        <div class="FlagImageLink inputBlock">
-            <label for="FlagImageLinkInput">Flag image link</label>
-            <textarea id="FlagImageLinkInput" class="FlagImageLinkInput" name="flag" placeholder="http://"></textarea>
+        <div class="flag_image_link input_block">
+            <label for="flag_image_link_input">Flag image link</label>
+            <textarea id="flag_image_link_input" class="js_flag_image_link_input" name="flag" placeholder="http://"></textarea>
         </div>
-        <section class="AddFormButtons">
-            <button type="submit" id="submitButton">Add</button>
+        <section class="add_form_buttons">
+            <button type="submit" id="submit_button">Add</button>
             <button type="reset">Clear</button>
         </section>
     </form>

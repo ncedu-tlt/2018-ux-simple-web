@@ -1,8 +1,15 @@
-.AddForm{
 
+.add_form{
+    position: relative;
 }
 
-.inputBlock{
+.error_message{
+    color: red;
+    position: absolute;
+    top: 50px;
+}
+
+.input_block{
     display: flex;
     flex-direction: column;
 }
@@ -27,7 +34,7 @@ label{
     margin: 15px 0;
 }
 
-.AddFormButtons{
+.add_form_buttons{
     width: 300px;
     display: flex;
     justify-content: space-between;
