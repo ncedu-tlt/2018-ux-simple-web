@@ -35,12 +35,8 @@ public class OfficesRemoveServlet extends HttpServlet {
         boolean success = OfficesRepository.getInstance().removeById(officeId);
         try (PrintWriter out = resp.getWriter()){
             JSONObject jsonObject = new JSONObject();
-            if (success){
-                jsonObject.put("isSuccess", true);
-            }
-            else {
-                jsonObject.put("isSuccess", false);
-            }
+            jsonObject.put("isSuccess", success);
+
             out.print(jsonObject.toString());
         }
     }

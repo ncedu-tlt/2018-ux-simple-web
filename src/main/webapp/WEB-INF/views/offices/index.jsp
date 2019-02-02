@@ -24,7 +24,10 @@
 <div class="line _title">
     <h2>List:</h2>
 </div>
-<c:if test="${requestScope.offices != []}">
+<c:if test="${requestScope.length == 0}">
+    <div>no offices</div>
+</c:if>
+<c:if test="${requestScope.length != 0}">
     <table>
         <tr>
             <th>ID</th>
