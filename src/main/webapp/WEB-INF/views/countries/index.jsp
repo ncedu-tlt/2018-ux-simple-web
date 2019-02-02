@@ -16,7 +16,7 @@
         <h1>Our Simple Web App</h1>
     </div>
 </a>
-<section class="CountryList">
+<section class="country_list">
     <h1>Countries</h1>
     <c:if test="${requestScope.error != null}">
         <span class="error">Error from server</span>
@@ -45,8 +45,8 @@
         </c:forEach>
         </tbody>
     </table>
-    <a href="countries/add" class="AddLink">
-        <div class="Plus">
+    <a href="countries/add" class="add_link">
+        <div class="plus">
             <div class="line1"></div>
             <div class="line2"></div>
         </div>

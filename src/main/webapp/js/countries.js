@@ -23,7 +23,7 @@ document.querySelector('form').onsubmit = function () {
 
     var isPhoneNumber =  /^\+\d+/.test(phoneExtension);
 
-    var isUrl = /^http?:+/.test(flag);
+    var isUrl = /^https?:+/.test(flag);
 
     if (name.length === 0 || phoneExtension.length === 0 || flag.length === 0) {
         showErrorMessage('fill in all fields', 3000);
