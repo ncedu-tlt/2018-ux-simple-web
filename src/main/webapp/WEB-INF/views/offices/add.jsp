@@ -24,36 +24,42 @@
         <c:if test="${requestScope.error != null}">
             <div class="form_row_error">
                 <div class="form_error">Please, fill up all fields before submitting the form</div>
-                <div class="form_error">Error in the input data.</div>
             </div>
         </c:if>
 
+        <div class="js_error_massage error_message">error</div>
+
         <div class="form_row">
             <label class="form_label" for="name">Name</label>
-            <input class="form_input" type="text" id="name" name="name"/>
+            <input class="form_input js_input_name" type="text" id="name" name="name"/>
+            <div class="error_message_row js_error_massage_name"></div>
         </div>
 
         <div class="form_row">
             <label class="form_label" for="phone_number">Phone number</label>
-            <input class="form_input" type="tel" id="phone_number" name="phone_number"/>
+            <input class="form_input js_input_phone_number" type="tel" id="phone_number" name="phone_number"/>
+            <div class="error_message_row js_error_massage_phone_number"></div>
         </div>
 
         <div class="form_row">
             <label class="form_label" for="city">City</label>
-            <select class="js_category" id="city" name="city">
+            <select class="js_select_city" id="city" name="city">
                 <option value="">none selected</option>
                 <c:forEach items="${requestScope.cites}" var="city">
                     <option value="${city.id}"> ${city.name} </option>
                 </c:forEach>
             </select>
+            <div class="error_message_row js_error_massage_city"></div>
         </div>
 
         <div class="form_row">
-            <button class="form_button" type="submit">Add</button>
+            <button class="form_button js_add_button" type="submit">Add</button>
             <button class="form_button" type="reset">Clear</button>
         </div>
 
     </form>
+
 </div>
+<script type="text/javascript" src="js/offices.js" ></script>
 </body>
 </html>

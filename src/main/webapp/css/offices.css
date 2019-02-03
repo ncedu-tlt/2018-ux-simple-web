@@ -73,3 +73,14 @@ th:nth-child(6):hover{
     color: greenyellow;
 }
 
+.error_message_row{
+    color: red;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.error_message{
+    display: none;
+}
+
+
