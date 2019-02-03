@@ -12,16 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
-@WebServlet(name="countriesAdd", urlPatterns = {"/countries/add"})
-public class CountriesAddServlet extends HttpServlet {
+@WebServlet(name="countriesEdit", urlPatterns = {"/countries/edit"})
+public class CountriesEditServlet extends HttpServlet {
 
     private static final String COUNTRIES_LIST_REDIRECT = "/countries";
+
+    private static final String COUNTRY_ID_PARAM = "country_id";
+    private static final String COUNTRY_ATTR = "country";
+    private static final String ERROR_ATTR = "error";
 
     private static final String NAME_PARAM = "countryName";
     private static final String PHONE_PARAM = "phoneExtension";
     private static final String FLAG_PARAM = "flag";
-
-    private static final String ERROR_ATTR = "error";
 
     private static final String COUNTRY_REGEX = "[^0-9]+";
     private static final String PHONE_REGEX = "^\\+\\d+";
@@ -37,31 +39,37 @@ public class CountriesAddServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
-        req.getRequestDispatcher(Views.COUNTRIES_ADD).forward(req, res);
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+            long countryId = Long.parseLong(req.getParameter(COUNTRY_ID_PARAM));
+
+            Country country = CountriesRepository.getInstance().get(countryId);
+
+            req.setAttribute(COUNTRY_ATTR, country);
+            req.getRequestDispatcher(Views.COUNTRIES_EDIT).forward(req, res);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+        long countryId = Long.parseLong(req.getParameter(COUNTRY_ID_PARAM));
         String countryName = req.getParameter(NAME_PARAM);
         String phoneExtension = req.getParameter(PHONE_PARAM);
         String flag = req.getParameter(FLAG_PARAM);
 
         if(!isValid(countryName, phoneExtension, flag)){
+
             req.setAttribute(ERROR_ATTR, true);
-            req.getRequestDispatcher(Views.COUNTRIES_ADD).forward(req, res);
+            req.getRequestDispatcher(Views.COUNTRIES_EDIT).forward(req, res);
             return;
         }
 
-        Country country = new Country();
+        Country country = CountriesRepository.getInstance().get(countryId);
 
         country.setName(countryName);
         country.setPhoneExtension(phoneExtension);
         country.setFlag(flag);
 
-        CountriesRepository.getInstance().add(country);
+        CountriesRepository.getInstance().update(country);
 
         res.sendRedirect(req.getContextPath() + COUNTRIES_LIST_REDIRECT);
-
     }
 }

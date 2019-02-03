@@ -32,14 +32,14 @@
         </tr>
         <c:forEach items="${requestScope.countries}" var="country">
             <tr>
-                <td class="name">${country.name}</td>
-                <td>${country.phoneExtension}</td>
-                <td class="flag"><img src="${country.flag}" alt="flag" width="50px"></td>
+                <td class="name js_name_cell">${country.name}</td>
+                <td class="js_phone_cell">${country.phoneExtension}</td>
+                <td class="flag js_flag_cell"><img src="${country.flag}" alt="flag" width="50px"></td>
                 <td>
-                    <button class="edit">edit</button>
+                    <a href="countries/edit?country_id=${country.id}" class="edit js_edit_link"><button class="edit">edit</button></a>
                 </td>
                 <td>
-                    <button class="delete">delete</button>
+                    <button class="delete js_delete_button">delete</button>
                 </td>
             </tr>
         </c:forEach>
@@ -53,5 +53,6 @@
         <span>Add</span>
     </a>
 </section>
+<script type="text/javascript" src="js/countries.js"></script>
 </body>
 </html>
