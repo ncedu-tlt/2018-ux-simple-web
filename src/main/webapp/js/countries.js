@@ -1,11 +1,9 @@
 function showErrorMessage(container, message, duration) {
 
-    container.style.display = 'block';
     container.innerText = message;
 
     setTimeout(function () {
         container.innerText = '';
-        container.style.display = '';
     }, duration)
 }
 
@@ -46,17 +44,24 @@ function inputsValidation(name, phoneExtension, flag, errorContainer){
     return true;
 }
 
-document.querySelector('form').onsubmit = function () {
+var forms = document.querySelectorAll('form');
 
-    var countryNameInput = document.querySelector('.js_country_name_input');
-    var phoneExtensionInput = document.querySelector('.js_phone_extension_input');
-    var flagLinkInput = document.querySelector('.js_flag_image_link_input');
-    var errorContainer = document.querySelector('.js_error_message');
+forms.forEach(function (form, index) {
 
-    var name = countryNameInput.value;
-    var phoneExtension = phoneExtensionInput.value;
-    var flag = flagLinkInput.value;
+    form.onsubmit = function () {
 
-    return inputsValidation(name, phoneExtension, flag, errorContainer);
-};
+        var countryNameInput = document.querySelector('.js_country_name_input');
+        var phoneExtensionInput = document.querySelector('.js_phone_extension_input');
+        var flagLinkInput = document.querySelector('.js_flag_image_link_input');
+        var errorContainer = document.querySelector('.js_error_message');
+
+        var name = countryNameInput.value;
+        var phoneExtension = phoneExtensionInput.value;
+        var flag = flagLinkInput.value;
+
+        return inputsValidation(name, phoneExtension, flag, errorContainer);
+    };
+});
+
+
 
