@@ -59,3 +59,4 @@ document.querySelector('form').onsubmit = function () {
 
     return inputsValidation(name, phoneExtension, flag, errorContainer);
 };
+
