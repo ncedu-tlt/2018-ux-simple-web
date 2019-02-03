@@ -20,10 +20,10 @@ public class OfficesEditServlet extends HttpServlet {
 
     private static final String OFFICE_ATTR = "office";
 
-    private static final String CITY_ATTR = "cites";
+    private static final String CITES_ATTR = "cites";
     private static final String CITY_ID_ATTR = "cityId";
 
-    private static final String OFFICE_ID_PARAM = "officeId";
+    private static final String OFFICE_ID_PARAM = "office_id";
     private static final String NAME_PARAM = "name";
     private static final String PHONE_NUMBER_PARAM = "phone_number";
 
@@ -40,7 +40,7 @@ public class OfficesEditServlet extends HttpServlet {
         OfficeViewModel officeViewModel = new OfficeViewModel(office, city);
 
         req.setAttribute(OFFICE_ATTR, officeViewModel);
-        req.setAttribute(CITY_ATTR, CitiesRepository.getInstance().get());
+        req.setAttribute(CITES_ATTR, CitiesRepository.getInstance().get());
         req.setAttribute(CITY_ID_ATTR, city.getId());
 
         req.getRequestDispatcher(Views.OFFICES_EDIT).forward(req, resp);
@@ -60,7 +60,7 @@ public class OfficesEditServlet extends HttpServlet {
             OfficeViewModel officeViewModel = new OfficeViewModel(office, city);
 
             req.setAttribute(OFFICE_ATTR, officeViewModel);
-            req.setAttribute(CITY_ATTR, CitiesRepository.getInstance().get());
+            req.setAttribute(CITES_ATTR, CitiesRepository.getInstance().get());
             req.setAttribute(CITY_ID_ATTR, city.getId());
 
             req.getRequestDispatcher(Views.OFFICES_EDIT).forward(req, resp);
