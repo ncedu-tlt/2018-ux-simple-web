@@ -22,7 +22,7 @@
         <span class="error">Error from server</span>
     </c:if>
     <span class="js_error_message error_message"></span>
-    <form class="post" method="post">
+    <form class="js_add_form" method="post">
         <div class="country_name input_block">
             <label for="country_name_input">Country name</label>
             <input id="country_name_input" class="js_country_name_input" type="text" name="countryName" value="${requestScope.country.name}">

@@ -7,7 +7,7 @@ function showErrorMessage(container, message, duration) {
     }, duration)
 }
 
-function inputsValidation(name, phoneExtension, flag, errorContainer){
+function inputsValidation(name, phoneExtension, flag, errorContainer) {
 
     var COUNTRY_REGEX = /[0-9]/;
     var PHONE_REGEX = /^\+\d+/;
@@ -44,24 +44,21 @@ function inputsValidation(name, phoneExtension, flag, errorContainer){
     return true;
 }
 
-var forms = document.querySelectorAll('form');
+var form = document.querySelector('.js_add_form');
 
-forms.forEach(function (form, index) {
+form.onsubmit = function () {
 
-    form.onsubmit = function () {
+    var countryNameInput = document.querySelector('.js_country_name_input');
+    var phoneExtensionInput = document.querySelector('.js_phone_extension_input');
+    var flagLinkInput = document.querySelector('.js_flag_image_link_input');
+    var errorContainer = document.querySelector('.js_error_message');
 
-        var countryNameInput = document.querySelector('.js_country_name_input');
-        var phoneExtensionInput = document.querySelector('.js_phone_extension_input');
-        var flagLinkInput = document.querySelector('.js_flag_image_link_input');
-        var errorContainer = document.querySelector('.js_error_message');
+    var name = countryNameInput.value;
+    var phoneExtension = phoneExtensionInput.value;
+    var flag = flagLinkInput.value;
 
-        var name = countryNameInput.value;
-        var phoneExtension = phoneExtensionInput.value;
-        var flag = flagLinkInput.value;
-
-        return inputsValidation(name, phoneExtension, flag, errorContainer);
-    };
-});
+    return inputsValidation(name, phoneExtension, flag, errorContainer);
+};
 
 
 
