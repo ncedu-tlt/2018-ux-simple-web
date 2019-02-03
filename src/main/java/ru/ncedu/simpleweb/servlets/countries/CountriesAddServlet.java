@@ -27,7 +27,7 @@ public class CountriesAddServlet extends HttpServlet {
     private static final String PHONE_REGEX = "^\\+\\d+";
     private static final String FLAG_URL_REGEX = "^https?:.+";
 
-    protected boolean isValid(String countryName, String phoneExtension, String flag) {
+    private boolean isValid(String countryName, String phoneExtension, String flag) {
 
         boolean isCountry = Pattern.matches(COUNTRY_REGEX, countryName) && !countryName.isEmpty();
         boolean isPhoneNumber = Pattern.matches(PHONE_REGEX, phoneExtension);
