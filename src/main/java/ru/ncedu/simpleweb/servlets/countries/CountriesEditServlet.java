@@ -25,7 +25,7 @@ public class CountriesEditServlet extends HttpServlet {
     private static final String PHONE_PARAM = "phoneExtension";
     private static final String FLAG_PARAM = "flag";
 
-    private static final String COUNTRY_REGEX = "[^0-9]";
+    private static final String COUNTRY_REGEX = "[^0-9]+";
     private static final String PHONE_REGEX = "^\\+\\d+";
     private static final String FLAG_URL_REGEX = "^https?:.+";
 
@@ -35,7 +35,7 @@ public class CountriesEditServlet extends HttpServlet {
         boolean isPhoneNumber = Pattern.matches(PHONE_REGEX, phoneExtension);
         boolean isFlag = Pattern.matches(FLAG_URL_REGEX, flag);
 
-        return !isCountry && isPhoneNumber && isFlag;
+        return isCountry && isPhoneNumber && isFlag;
     }
 
     @Override
