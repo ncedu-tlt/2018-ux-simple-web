@@ -79,8 +79,16 @@ th:nth-child(6):hover{
     font-size: 20px;
 }
 
-.error_message{
+.error_message_no_active{
     display: none;
+}
+
+.error_message{
+    color: red;
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid red;
+    margin-bottom: 30px;
 }
 
 

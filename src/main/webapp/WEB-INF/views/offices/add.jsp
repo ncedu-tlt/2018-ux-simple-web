@@ -27,7 +27,7 @@
             </div>
         </c:if>
 
-        <div class="js_error_massage error_message">error</div>
+        <div class="js_error_massage error_message_no_active error_message">Not all fields were filled in correctly</div>
 
         <div class="form_row">
             <label class="form_label" for="name">Name</label>
@@ -37,7 +37,7 @@
 
         <div class="form_row">
             <label class="form_label" for="phone_number">Phone number</label>
-            <input class="form_input js_input_phone_number" type="tel" id="phone_number" name="phone_number"/>
+            <input class="form_input js_input_phone_number" type="tel" id="phone_number" name="phone_number" PLACEHOLDER="+79ххххххххх"/>
             <div class="error_message_row js_error_massage_phone_number"></div>
         </div>
 
