@@ -35,7 +35,7 @@ function isValidName(length) {
 }
 
 function isValidPhoneNumber(phone) {
-    if (phone[0] === '+' && phone[1] === '7' && phone[2] === '9' && phone.match(/[0-9]/g).length===11) {
+    if (phone.match(/^\+79\d{9}$/g)!==null) {
         document.getElementsByClassName('js_error_massage_phone_number')[0].innerHTML = "";
         return true;
     }
