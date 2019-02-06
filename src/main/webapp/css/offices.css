@@ -73,3 +73,22 @@ th:nth-child(6):hover{
     color: greenyellow;
 }
 
+.error_message_row{
+    color: red;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.error_message_no_active{
+    display: none;
+}
+
+.error_message{
+    color: red;
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid red;
+    margin-bottom: 30px;
+}
+
+
