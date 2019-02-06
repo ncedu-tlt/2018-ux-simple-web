@@ -11,11 +11,11 @@ for (var elem = 0; elem < trArray.length; elem++) {
         xhr.send();
         xhr.onreadystatechange = function () {
             if (xhr.readyState != 4) return;
-            if (JSON.parse(xhr.responseText).isSuccess) {
+            if (JSON.parse(xhr.responseText).isSuccess){
                 row.remove();
             } else {
                 var errorMessage = document.getElementsByClassName("js_error");
-                errorMessage[0].style.display = "block";
+                errorMessage[0].style.display="block";
             }
         };
     })
