@@ -19,27 +19,33 @@
 <div>
     <h1>Edit offering</h1>
 </div>
+<div class="form_row_error">
+    <div class="form_error js_required none">Field must be filled!</div>
+</div>
+<div class="form_row_error">
+    <div class="form_error js_valid none">The field price should contain only numbers!</div>
+</div>
 <c:if test="${requestScope.error != null}">
     <div class="form_row_error">
         <div class="form_error">Please, fill up all fields before submitting the form</div>
     </div>
 </c:if>
 <div class="table_offerings">
-    <form method="post" class="addForm">
+    <form method="post" class="addForm js_form_edit">
         <table>
             <tbody>
             <tr>
                 <td>
                     Office:
                 </td>
-                <td>
+                <td class="js_office">
                     ${requestScope.offering.officeName}</td>
             </tr>
             <tr>
                 <td>
                     Product:
                 </td>
-                <td>
+                <td class="js_product">
                     ${requestScope.offering.productName}
                 </td>
             </tr>
@@ -48,7 +54,7 @@
                     <label class="form_label" for="offering_price">Offering price</label>
                 </td>
                 <td>
-                    <input value="${requestScope.offering.offeringPrice}" step="any" type="number" id="offering_price" name="offering_price"/>
+                    <input value="${requestScope.offering.offeringPrice}" id="offering_price" name="offering_price" class="js_offering_price"/>
                 </td>
             </tr>
             <tr>
@@ -62,6 +68,7 @@
 
 
     </form>
+    <script type="text/javascript" src="js/offering.js"></script>
 
 </div>
 </body>
