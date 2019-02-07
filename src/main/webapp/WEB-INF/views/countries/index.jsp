@@ -24,8 +24,8 @@
     <section class="delete_window js_delete_window">
         <p class="js_delete_message"></p>
         <div class="buttons_block">
-            <button type="button" class="yes_button">Yes</button>
-            <button type="button" class="no_button">No</button>
+            <button type="button" class="js_yes_button">Yes</button>
+            <button type="button" class="js_no_button">No</button>
         </div>
     </section>
     <table border="1" cellPadding="5">
@@ -38,7 +38,7 @@
             <th>Delete</th>
         </tr>
         <c:forEach items="${requestScope.countries}" var="country">
-            <tr>
+            <tr id="${country.id}">
                 <td class="name js_name_cell">${country.name}</td>
                 <td class="js_phone_cell">${country.phoneExtension}</td>
                 <td class="flag js_flag_cell"><img src="${country.flag}" alt="flag" width="50px"></td>
