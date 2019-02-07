@@ -40,6 +40,6 @@
         </section>
     </form>
 </section>
-<script type="text/javascript" src="js/countries.js"></script>
+<script type="text/javascript" src="js/countries/validation.js"></script>
 </body>
 </html>

@@ -21,6 +21,13 @@
     <c:if test="${requestScope.error != null}">
         <span class="error">Error from server</span>
     </c:if>
+    <section class="delete_window js_delete_window">
+        <p class="js_delete_message"></p>
+        <div class="buttons_block">
+            <button type="button" class="yes_button">Yes</button>
+            <button type="button" class="no_button">No</button>
+        </div>
+    </section>
     <table border="1" cellPadding="5">
         <tbody>
         <tr>
@@ -39,7 +46,7 @@
                     <a href="countries/edit?country_id=${country.id}" class="edit js_edit_link"><button class="edit">edit</button></a>
                 </td>
                 <td>
-                    <button class="delete js_delete_button">delete</button>
+                    <button type="button" class="delete js_delete_button">delete</button>
                 </td>
             </tr>
         </c:forEach>
@@ -53,6 +60,6 @@
         <span>Add</span>
     </a>
 </section>
-<script type="text/javascript" src="js/countries.js"></script>
+<script type="text/javascript" src="js/countries/delete.js"></script>
 </body>
 </html>
