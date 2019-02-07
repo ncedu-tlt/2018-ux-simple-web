@@ -29,8 +29,14 @@
         <div class="form_error">This combination of office and product already exists.</div>
     </div>
 </c:if>
+<div class="form_row_error">
+<div class="form_error js_required none">All fields must be filled!</div>
+</div>
+<div class="form_row_error">
+<div class="form_error js_valid none">The field price should contain only numbers!</div>
+</div>
 <div class="table_offerings">
-    <form method="post" class="addForm">
+    <form method="post" class="addForm js_form_add">
         <table>
             <tbody>
             <tr>
@@ -38,7 +44,7 @@
                     <label class="form_label" for="offices">Office</label>
                 </td>
                 <td>
-                    <select id="offices" name="office_id">
+                    <select id="offices" name="office_id" class="js_office">
                         <option value="">none selected</option>
                         <c:forEach items="${requestScope.offices}" var="office">
                             <option value="${office.id}"> ${office.name} </option>
@@ -51,7 +57,7 @@
                     <label class="form_label" for="product">Product</label>
                 </td>
                 <td>
-                    <select id="product" name="product_id">
+                    <select id="product" name="product_id" class="js_product">
                         <option value="">none selected</option>
                         <c:forEach items="${requestScope.products}" var="product">
                             <option value="${product.id}"> ${product.name} </option>
@@ -64,7 +70,7 @@
                     <label class="form_label" for="offering_price">Offering price</label>
                 </td>
                 <td>
-                    <input step="any" type="number" id="offering_price" name="offering_price"/>
+                    <input  id="offering_price" name="offering_price" class="js_offering_price"/>
                 </td>
             </tr>
             <tr>
@@ -76,6 +82,7 @@
             </tbody>
         </table>
     </form>
+    <script type="text/javascript" src="js/offering.js"></script>
 </div>
 </body>
 </html>
