@@ -164,8 +164,6 @@ public class ProductsRepository implements Repository<Product, Long> {
         Connection connection = DBUtils.getConnection();
         PreparedStatement statement = null;
 
-
-
         try {
             statement = connection.prepareStatement(
                     "DELETE FROM product " +

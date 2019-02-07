@@ -27,6 +27,11 @@ deleteButton.onclick = function () {
     xhr.open('DELETE', 'countries/remove?id=' + id, true);
 
     xhr.onload = function () {
+        if (xhr.readyState !== 4) {
+            deleteWindow.querySelector('.js_delete_message').innerText = 'Error from server';
+            return;
+        }
+
         var isSuccess = JSON.parse(this.responseText).isSuccess;
 
         if (isSuccess) {
