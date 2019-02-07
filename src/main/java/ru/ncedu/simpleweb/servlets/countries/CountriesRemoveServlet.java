@@ -1,5 +1,6 @@
 package ru.ncedu.simpleweb.servlets.countries;
 
+import ru.ncedu.simpleweb.models.Country;
 import ru.ncedu.simpleweb.repositories.CountriesRepository;
 
 import javax.servlet.ServletException;
@@ -36,7 +37,14 @@ public class CountriesRemoveServlet extends HttpServlet {
 
 
         long countryIdNumber = Long.parseLong(countryId);
-        boolean isDeleted = CountriesRepository.getInstance().removeById(countryIdNumber);
+        boolean isDeleted = false;
+
+        Country country = CountriesRepository.getInstance().get(countryIdNumber);
+
+        if (country != null) {
+            isDeleted = CountriesRepository.getInstance().removeById(countryIdNumber);
+        }
+
         try (PrintWriter out = res.getWriter()) {
             JSONObject jsonEnt = new JSONObject();
             if (isDeleted) {

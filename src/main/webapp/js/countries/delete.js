@@ -27,14 +27,14 @@ deleteButton.onclick = function () {
     xhr.open('DELETE', 'countries/remove?id=' + id, true);
 
     xhr.onload = function () {
-        var response = JSON.parse(this.responseText);
-        console.log(response);
-        // if (response) {
-        //     deleteWindow.style.display = '';
-        //     tr.remove();
-        // } else {
-        //     deleteWindow.querySelector('.js_delete_message').innerText = 'Error from server';
-        // }
+        var isSuccess = JSON.parse(this.responseText).isSuccess;
+
+        if (isSuccess) {
+            deleteWindow.style.display = '';
+            tr.remove();
+        } else {
+            deleteWindow.querySelector('.js_delete_message').innerText = 'Error from server';
+        }
     };
     xhr.send();
 };
