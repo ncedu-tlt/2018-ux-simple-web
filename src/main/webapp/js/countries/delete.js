@@ -3,23 +3,23 @@ var deleteWindow = document.querySelector('.js_delete_window');
 var tr;
 
 deleteButtonsArray.forEach(function (button, index) {
-    button.onclick = function () {
-        tr = this.closest('tr');
+    button.addEventListener('click', function () {
+        tr = this.closest('.js_table_row');
         var countryName = tr.querySelector('.js_name_cell').innerText;
-        deleteWindow.style.display = 'flex';
+        deleteWindow.classList.add('delete_window_show');
         deleteWindow.querySelector('.js_delete_message').innerText = 'Are you sure you want to delete ' + countryName;
-    }
+    })
 });
 
 var cancelDeleteButton = deleteWindow.querySelector('.js_no_button');
 
-cancelDeleteButton.onclick = function () {
-    deleteWindow.style.display = '';
-};
+cancelDeleteButton.addEventListener('click', function () {
+    deleteWindow.classList.remove('delete_window_show');
+});
 
 var deleteButton = deleteWindow.querySelector('.js_yes_button');
 
-deleteButton.onclick = function () {
+deleteButton.addEventListener('click', function () {
 
     var id = tr.id;
 
@@ -35,11 +35,11 @@ deleteButton.onclick = function () {
         var isSuccess = JSON.parse(this.responseText).isSuccess;
 
         if (isSuccess) {
-            deleteWindow.style.display = '';
+            deleteWindow.classList.remove('delete_window_show');
             tr.remove();
         } else {
             deleteWindow.querySelector('.js_delete_message').innerText = 'Error from server';
         }
     };
     xhr.send();
-};
+});

@@ -79,7 +79,7 @@ button:hover{
     transform: rotate(90deg);
 }
 
-.delete_window{
+.delete_window_hidden{
     position: fixed;
     display: none;
     flex-direction: column;
@@ -94,6 +94,10 @@ button:hover{
     z-index: 100;
     border-radius: 6px;
     box-shadow: 1px 1px 23px 1px rgba(0,0,0,0.18);
+}
+
+.delete_window_show{
+    display: flex;
 }
 
 .buttons_block button{

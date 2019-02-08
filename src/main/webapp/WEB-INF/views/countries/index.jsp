@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Countries - Add</title>
+    <title>Countries</title>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="css/common.css">
@@ -21,7 +21,7 @@
     <c:if test="${requestScope.error != null}">
         <span class="error">Error from server</span>
     </c:if>
-    <section class="delete_window js_delete_window">
+    <section class="delete_window_hidden js_delete_window">
         <p class="js_delete_message"></p>
         <div class="buttons_block">
             <button type="button" class="js_yes_button">Yes</button>
@@ -38,7 +38,7 @@
             <th>Delete</th>
         </tr>
         <c:forEach items="${requestScope.countries}" var="country">
-            <tr id="${country.id}">
+            <tr id="${country.id}" class="js_table_row">
                 <td class="name js_name_cell">${country.name}</td>
                 <td class="js_phone_cell">${country.phoneExtension}</td>
                 <td class="flag js_flag_cell"><img src="${country.flag}" alt="flag" width="50px"></td>

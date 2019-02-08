@@ -47,11 +47,7 @@ public class CountriesRemoveServlet extends HttpServlet {
 
         try (PrintWriter out = res.getWriter()) {
             JSONObject jsonEnt = new JSONObject();
-            if (isDeleted) {
-                jsonEnt.put("isSuccess", true);
-            } else {
-                jsonEnt.put("isSuccess", false);
-            }
+            jsonEnt.put("isSuccess", isDeleted);
             out.print(jsonEnt.toString());
         }
     }
