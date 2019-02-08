@@ -17,7 +17,7 @@
     </div>
 </a>
 <section class="add_form">
-    <h1>Edit Form</h1>
+    <h1>Countries - Edit</h1>
     <c:if test="${requestScope.error != null}">
         <span class="error">Error from server</span>
     </c:if>
@@ -40,6 +40,6 @@
         </section>
     </form>
 </section>
-<script type="text/javascript" src="js/countries.js"></script>
+<script type="text/javascript" src="js/countries/validation.js"></script>
 </body>
 </html>

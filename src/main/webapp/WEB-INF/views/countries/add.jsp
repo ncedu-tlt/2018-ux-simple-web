@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Countries</title>
+    <title>Countries - Add</title>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <base href="${pageContext.request.contextPath}/"/>
@@ -41,6 +41,6 @@
         </section>
     </form>
 </section>
-<script type="text/javascript" src="js/countries.js"></script>
+<script type="text/javascript" src="js/countries/validation.js"></script>
 </body>
 </html>
